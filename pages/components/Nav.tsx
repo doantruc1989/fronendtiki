@@ -2,8 +2,10 @@ import { Avatar, Button, Dropdown, Modal, Navbar } from "flowbite-react";
 import { HiOutlineShoppingCart, HiGift, HiMap } from "react-icons/hi";
 import React, { useEffect, useState } from "react";
 import axiosAll from "./other/axiosAll";
+import { useCart } from "react-use-cart";
 
 const Nav = () => {
+  const { totalItems, isEmpty } = useCart();
   const [modals, setModals] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [city, setCity] = useState();
@@ -139,8 +141,10 @@ const Nav = () => {
                 <HiGift className="mr-2 text-xl" />
                 <span className="text-lg">Astra</span>
               </Button>
-              <Button className="navbutton">
+              <Button className="navbutton relative" href="/cart">
+                
                 <HiOutlineShoppingCart className="mr-2 text-xl" />
+                {isEmpty ? null : <span className="bg-red-500 rounded-full px-2 py-1 text-white absolute top-0 right-1 text-xs">{totalItems}</span>}
               </Button>
             </div>
 
