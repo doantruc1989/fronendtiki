@@ -7,6 +7,7 @@ import {
   HiChevronLeft,
   HiChevronRight,
 } from "react-icons/hi";
+import Link from "next/link";
 
 const index = () => {
   const { totalUniqueItems, items, updateItemQuantity, removeItem, cartTotal } =
@@ -39,7 +40,7 @@ const index = () => {
                         <Table.Cell className="px-0 py-0">
                           <img src={item.image} className="w-15 h-15" />
                         </Table.Cell>
-                        <Table.Cell className="hidden lg:block whitespace-nowrap text-xs font-medium text-gray-900 dark:text-white max-w-md break-all">
+                        <Table.Cell className="flex-col self-center content-center hidden w-96 lg:flex text-xs font-medium text-gray-900 dark:text-white">
                           {item.productName}
                         </Table.Cell>
                         <Table.Cell className="w-full font-medium">
@@ -98,18 +99,13 @@ const index = () => {
                   </div>
                 </div>
               </div>
+              <Link href="/diachigiaohang">
               <Button
                 className="justify-self-center mt-4 w-full"
-                onClick={() => {
-                  toast("Add product successfully", {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    type: toast.TYPE.SUCCESS,
-                    className: "toast-message",
-                  });
-                }}
               >
                 Thanh toán ({totalUniqueItems})
               </Button>
+              </Link>
             </div>
           </div>
         </>

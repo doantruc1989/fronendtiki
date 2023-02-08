@@ -1,37 +1,62 @@
 import { Button, Card, Modal, Rating } from "flowbite-react";
 import React, { useEffect, useRef, useState } from "react";
 import { useCart } from "react-use-cart";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import axiosAll from "../other/axiosAll";
 
 const Hero6 = () => {
   const { addItem } = useCart();
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(2);
+  const [value, setValue] = useState("danhchoban");
+  const [category, setCategory] = useState("đồ chơi");
   const [modals, setModals] = useState(false);
   const [productDetail, setProductDetail] = useState();
   const clickref = useRef();
 
   useEffect(() => {
-    let handler = (e:any)=>{
-      if(!clickref.current?.contains(e.target)){
+    let handler = (e: any) => {
+      if (!clickref.current?.contains(e.target)) {
         setModals(false);
-      }      
+      }
     };
     document.addEventListener("mousedown", handler);
-    return() =>{
+    return () => {
       document.removeEventListener("mousedown", handler);
-    }
+    };
   });
 
   useEffect(() => {
     try {
-      axiosAll.get("/product").then((response) => {
+      axiosAll.get(`/product`).then((response) => {
         setProducts(response.data);
       });
     } catch (error) {
       console.log(error);
     }
   }, []);
+
+  const loadMore = () => {
+    try {
+      axiosAll.get(`/product?page=${page}`).then((response) => {
+        setProducts([...products, ...response.data]);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const danhchoban = () => {
+    try {
+      axiosAll
+        .get(`/product/all?search=${value}&category=${category}`)
+        .then((res) => {
+          setProducts(res.data);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Card className="bg-gray-200 mx-6 mb-6">
@@ -41,7 +66,15 @@ const Hero6 = () => {
       </h5>
       <div className="hidden md:flex md:flex-wrap content-around justify-between">
         <Card className="cursor-pointer w-1/6 h-auto hover">
-          <div className="flex flex-col items-center">
+          <button
+            className="flex flex-col items-center"
+            onClick={() => {
+              setPage(1);
+              setCategory("đồ chơi");
+              setValue("danhchoban");
+              danhchoban();
+            }}
+          >
             <img
               className="mb-3 h-11 w-11 rounded-full shadow-lg"
               src="image/danhchoban.png"
@@ -50,11 +83,19 @@ const Hero6 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Dành cho bạn
             </span>
-          </div>
+          </button>
         </Card>
 
         <Card className="cursor-pointer w-1/6 h-auto hover">
-          <div className="flex flex-col items-center">
+          <button
+            className="flex flex-col items-center"
+            onClick={() => {
+              setPage(1);
+              setCategory("điện thoại");
+              setValue("dichvuso");
+              danhchoban();
+            }}
+          >
             <img
               className="mb-3 h-11 w-11 rounded-full shadow-lg"
               src="image/dichvuso.png"
@@ -63,10 +104,18 @@ const Hero6 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Dịch vụ số
             </span>
-          </div>
+          </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
-          <div className="flex flex-col items-center">
+          <button
+            className="flex flex-col items-center"
+            onClick={() => {
+              setPage(1);
+              setCategory("đồ nữ");
+              setValue("dealsieuhot");
+              danhchoban();
+            }}
+          >
             <img
               className="mb-3 h-11 w-11 rounded-full shadow-lg"
               src="image/dealsieuhot.png"
@@ -75,10 +124,18 @@ const Hero6 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Deal siêu hot
             </span>
-          </div>
+          </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
-          <div className="flex flex-col items-center">
+          <button
+            className="flex flex-col items-center"
+            onClick={() => {
+              setPage(1);
+              setCategory("giày nữ");
+              setValue("revodoi");
+              danhchoban();
+            }}
+          >
             <img
               className="mb-3 h-11 w-11 rounded-full shadow-lg"
               src="image/revodoi.png"
@@ -87,10 +144,18 @@ const Hero6 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Rẻ vô đối
             </span>
-          </div>
+          </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
-          <div className="flex flex-col items-center">
+          <button
+            className="flex flex-col items-center"
+            onClick={() => {
+              setPage(1);
+              setCategory("đồ nam");
+              setValue("thoitrang");
+              danhchoban();
+            }}
+          >
             <img
               className="mb-3 h-11 w-11 rounded-full shadow-lg"
               src="image/thoitrang.png"
@@ -99,10 +164,16 @@ const Hero6 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Thời trang
             </span>
-          </div>
+          </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
-          <div className="flex flex-col items-center">
+          <button className="flex flex-col items-center"
+          onClick={() => {
+            setPage(1);
+            setCategory("điện gia dụng");
+            setValue("trending");
+            danhchoban();
+          }}>
             <img
               className="mb-3 h-11 w-11 rounded-full shadow-lg"
               src="image/trending.png"
@@ -111,7 +182,7 @@ const Hero6 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Trending
             </span>
-          </div>
+          </button>
         </Card>
       </div>
       {/* <div className=" flex flex-wrap content-around justify-between"> */}
@@ -137,22 +208,25 @@ const Hero6 = () => {
                   });
                 }}
               >
-                <h5 className="cursor-pointer text-sm sm:text-xs font-semibold text-gray-900 dark:text-white mx-1 mt-3 h-16 text-ellipsis">
+                <h5 className="cursor-pointer text-sm sm:text-xs font-semibold text-gray-900 dark:text-white mx-1 mt-3 h-20 text-ellipsis">
                   {product?.productName}
                 </h5>
               </a>
               <div className="flex items-center flex-col justify-between">
                 <span className="text-sm font-bold text-gray-900 dark:text-white my-1">
-                  {Intl.NumberFormat().format(product?.price)}{" "}đ
+                  {Intl.NumberFormat().format(product?.price)} đ
                 </span>
-                <Button className="mb-5 mt-2" onClick={() => {
-                  addItem(product)
-                  toast("Add product successfully", {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    type: toast.TYPE.SUCCESS,
-                    className: 'toast-message'
-                })
-                  }}>
+                <Button
+                  className="mb-5 mt-2"
+                  onClick={() => {
+                    addItem(product);
+                    toast("Add product successfully", {
+                      position: toast.POSITION.BOTTOM_RIGHT,
+                      type: toast.TYPE.SUCCESS,
+                      className: "toast-message",
+                    });
+                  }}
+                >
                   Add to cart
                 </Button>
               </div>
@@ -205,15 +279,8 @@ const Hero6 = () => {
                 <div className="bg-gray-100 font-bold rounded-md p-4 my-4 text-red-700 text-xl md:text-3xl">
                   <h2>{Intl.NumberFormat().format(productDetail?.price)} đ</h2>
                 </div>
-                <div className="bg-gray-100 rounded-md p-3">
-                  <h2 className="font-bold text-sm md:text-base">
-                    Mô tả sản phẩm:
-                  </h2>
-                  <div className="text-sm md:text-base text-justify">
-                    {productDetail?.content}
-                  </div>
-                </div>
-                <Button
+
+                {/* <Button
                   className="mb-5 justify-self-center mt-4"
                   onClick={() => {
                     addItem(productDetail)
@@ -225,17 +292,31 @@ const Hero6 = () => {
                   }}
                 >
                   Add to cart
-                </Button>
-                
+                </Button> */}
+              </div>
+            </div>
+            <div className="bg-gray-100 rounded-md p-3 mx-3 mt-4">
+              <h2 className="font-bold text-sm md:text-base">
+                Mô tả sản phẩm:
+              </h2>
+              <div className="text-sm md:text-base text-justify">
+                {productDetail?.content}
               </div>
             </div>
           </Modal.Body>
         </Modal>
       </div>
+      <Button
+        className="w-fit flex self-center"
+        onClick={() => {
+          setPage(page + 1);
+          loadMore();
+        }}
+      >
+        Load more
+      </Button>
     </Card>
   );
 };
-
-
 
 export default Hero6;

@@ -23,6 +23,7 @@ const CountdownComp = () => {
   return (
     <Countdown
       date={Date.now() + 1000 * 60 * 60 * 3}
+      zeroPadTime={2}
       renderer={renderer}
     ></Countdown>
   );

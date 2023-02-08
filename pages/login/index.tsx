@@ -38,19 +38,8 @@ const Login = () => {
 
     return (
         <>
-            <Alert
-                color="failure"
-                icon={HiInformationCircle}
-            >
-                <span>
-                    <span className="font-medium">
-                        Info alert!
-                    </span>
-                    {' '}Change a few things up and try submitting again.
-                </span>
-            </Alert>
             <div className='my-10 md:flex items-center justify-center'>
-                <form className="flex flex-col gap-4 md:w-2/4" onSubmit={handleSubmit}>
+                <form className="flex pt-10 flex-col gap-4 md:w-2/4" onSubmit={handleSubmit}>
                     <h1 className='text-lg text-center uppercase font-semibold'>Login</h1>
                     <div>
                         <div className="mb-2 block">

@@ -8,63 +8,93 @@ import Tab from "./Tab";
 import TabSearch from "./TabSearch";
 
 
+
 const index = () => {
     const [searchs, setSearchs] = useState({});
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "điện thoại",
+      category: "đồ nam",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
-      toPrice: 2000000,
+      toPrice: 80000,
     };
     const price2 = {
-      category: "điện thoại",
+      category: "đồ nam",
       sortBy: "price",
       search: "gia2",
-      fromPrice: 2000000,
-      toPrice: 5500000,
+      fromPrice: 80000,
+      toPrice: 200000,
     };
     const price3 = {
-      category: "điện thoại",
+      category: "đồ nam",
       sortBy: "price",
       search: "gia3",
-      fromPrice: 5500000,
-      toPrice: 23000000,
+      fromPrice: 200000,
+      toPrice: 420000,
     };
     const price4 = {
-      category: "điện thoại",
+      category: "đồ nam",
       sortBy: "price",
       search: "gia4",
-      fromPrice: 23000000,
-      toPrice: 100000000,
+      fromPrice: 420000,
+      toPrice: 10000000,
     };
 
     const danhmuc1 = {
-      category: "điện thoại",
-      sortBy: "điện thoại",
+      category: "đồ nam",
+      sortBy: "thun",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "điện thoại",
-      sortBy: "bảng",
+      category: "đồ nam",
+      sortBy: "sơ mi",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "điện thoại",
-      sortBy: "sách",
+      category: "đồ nam",
+      sortBy: "khoác",
       search: "danhmuc3",
     };
 
+    const danhmuc4 = {
+      category: "đồ nam",
+      sortBy: "hoodie",
+      search: "danhmuc4",
+    };
+
     const danhmuc5 = {
-      category: "điện thoại",
-      sortBy: "bàn",
+      category: "đồ nam",
+      sortBy: "lớn",
       search: "danhmuc5",
     };
 
+    const danhmuc6 = {
+      category: "đồ nam",
+      sortBy: "quần",
+      search: "danhmuc6",
+    };
+
+    const danhmuc7 = {
+      category: "đồ nam",
+      sortBy: "ngủ",
+      search: "danhmuc7",
+    };
+
+    const danhmuc8 = {
+      category: "đồ nam",
+      sortBy: "đôi",
+      search: "danhmuc8",
+    };
+
+    const danhmuc9 = {
+      category: "đồ nam",
+      sortBy: "lót",
+      search: "danhmuc9",
+    };
 
   return (
     <div className="my-5">
@@ -72,7 +102,7 @@ const index = () => {
         <Breadcrumb.Item href="/" icon={HiHome}>
           Trang chủ
         </Breadcrumb.Item>
-        <Breadcrumb.Item>Điện Thoại - Máy Tính Bảng</Breadcrumb.Item>
+        <Breadcrumb.Item>Thời trang nam</Breadcrumb.Item>
       </Breadcrumb>
       <div className="grid gap-6 grid-cols-4 w-11/12 mx-auto mt-5">
         <div className="md:col-start-1 md:col-end-2 hidden md:block">
@@ -83,28 +113,28 @@ const index = () => {
                 setChangeTab(true);
                 setSearchs(danhmuc1);
               }}>
-              Điện thoại Smartphone
+              Áo thun nam
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
                 setSearchs(danhmuc2);
               }}>
-           Máy tính bảng
+           Áo sơ mi nam
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
                 setSearchs(danhmuc3);
               }}>
-           Máy đọc sách
+           Áo khoác nam
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
-                setSearchs(price1);
+                setSearchs(danhmuc4);
               }}>
-              Điện thoại phổ thông
+              Áo hoodie nam
             </button>
 
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
@@ -112,9 +142,36 @@ const index = () => {
                 setChangeTab(true);
                 setSearchs(danhmuc5);
               }}>
-            Điện thoại bàn
+              Quần áo nam kích cỡ lớn
             </button>
-            
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+            onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc6);
+              }}>
+              Quần nam
+            </button>
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+            onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc7);
+              }}>
+             Đồ ngủ
+            </button>
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+            onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc8);
+              }}>
+             Đồ đôi
+            </button>
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+             onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc9);
+              }}>
+             Đồ lót nam
+            </button>
           </div>
 
           <div className="flex flex-col bg-gray-200 mt-3 rounded-xl p-4 leading-loose">
@@ -125,7 +182,7 @@ const index = () => {
                 setSearchs(price1);
               }}
             >
-              Dưới 2.000.000
+              Dưới 80.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
              onClick={() => {
@@ -133,7 +190,7 @@ const index = () => {
                 setSearchs(price2);
               }}
               >
-              2.000.000 to 5.500.000
+              80.000 to 200.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
@@ -141,7 +198,7 @@ const index = () => {
                 setSearchs(price3);
               }}
               >
-              5.500.000 to 23.000.000
+              200.000 to 420.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
@@ -149,7 +206,7 @@ const index = () => {
                 setSearchs(price4);
               }}
               >
-              Trên 23.000.000
+              Trên 420.000
             </button>
           </div>
           
@@ -234,7 +291,7 @@ const index = () => {
         <div className="col-start-1 md:col-start-2 col-end-5 ">
           <div className="bg-gray-200 rounded-xl">
             <div className="mx-3 mt-3 font-medium text-xl">
-              <h1 className="mb-3 pt-3">Điện Thoại - Máy Tính Bảng</h1>
+              <h1 className="mb-3 pt-3">Thời trang nam</h1>
               <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96 pb-3 px-3">
                 <Carousel
                   slide={true}

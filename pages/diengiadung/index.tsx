@@ -13,56 +13,44 @@ const index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "điện thoại",
+      category: "điện gia dụng",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
-      toPrice: 2000000,
+      toPrice: 1500000,
     };
     const price2 = {
-      category: "điện thoại",
+      category: "điện gia dụng",
       sortBy: "price",
       search: "gia2",
-      fromPrice: 2000000,
-      toPrice: 5500000,
+      fromPrice: 1500000,
+      toPrice: 4000000,
     };
     const price3 = {
-      category: "điện thoại",
+      category: "điện gia dụng",
       sortBy: "price",
       search: "gia3",
-      fromPrice: 5500000,
-      toPrice: 23000000,
+      fromPrice: 4000000,
+      toPrice: 7000000,
     };
     const price4 = {
-      category: "điện thoại",
+      category: "điện gia dụng",
       sortBy: "price",
       search: "gia4",
-      fromPrice: 23000000,
+      fromPrice: 7000000,
       toPrice: 100000000,
     };
 
     const danhmuc1 = {
-      category: "điện thoại",
-      sortBy: "điện thoại",
+      category: "điện gia dụng",
+      sortBy: "da",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "điện thoại",
-      sortBy: "bảng",
+      category: "điện gia dụng",
+      sortBy: "hút",
       search: "danhmuc2",
-    };
-
-    const danhmuc3 = {
-      category: "điện thoại",
-      sortBy: "sách",
-      search: "danhmuc3",
-    };
-
-    const danhmuc5 = {
-      category: "điện thoại",
-      sortBy: "bàn",
-      search: "danhmuc5",
     };
 
 
@@ -72,7 +60,7 @@ const index = () => {
         <Breadcrumb.Item href="/" icon={HiHome}>
           Trang chủ
         </Breadcrumb.Item>
-        <Breadcrumb.Item>Điện Thoại - Máy Tính Bảng</Breadcrumb.Item>
+        <Breadcrumb.Item>Điện Gia Dụng</Breadcrumb.Item>
       </Breadcrumb>
       <div className="grid gap-6 grid-cols-4 w-11/12 mx-auto mt-5">
         <div className="md:col-start-1 md:col-end-2 hidden md:block">
@@ -83,36 +71,14 @@ const index = () => {
                 setChangeTab(true);
                 setSearchs(danhmuc1);
               }}>
-              Điện thoại Smartphone
+              Đồ dùng nhà bếp
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
                 setSearchs(danhmuc2);
               }}>
-           Máy tính bảng
-            </button>
-            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
-            onClick={() => {
-                setChangeTab(true);
-                setSearchs(danhmuc3);
-              }}>
-           Máy đọc sách
-            </button>
-            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
-            onClick={() => {
-                setChangeTab(true);
-                setSearchs(price1);
-              }}>
-              Điện thoại phổ thông
-            </button>
-
-            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
-            onClick={() => {
-                setChangeTab(true);
-                setSearchs(danhmuc5);
-              }}>
-            Điện thoại bàn
+          Thiết bị gia đình
             </button>
             
           </div>
@@ -125,7 +91,7 @@ const index = () => {
                 setSearchs(price1);
               }}
             >
-              Dưới 2.000.000
+              Dưới 1.500.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
              onClick={() => {
@@ -133,7 +99,7 @@ const index = () => {
                 setSearchs(price2);
               }}
               >
-              2.000.000 to 5.500.000
+              1.500.000 to 4.000.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
@@ -141,7 +107,7 @@ const index = () => {
                 setSearchs(price3);
               }}
               >
-              5.500.000 to 23.000.000
+              4.000.000 to 7.000.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
@@ -149,7 +115,7 @@ const index = () => {
                 setSearchs(price4);
               }}
               >
-              Trên 23.000.000
+              Trên 7.000.000
             </button>
           </div>
           
@@ -234,7 +200,7 @@ const index = () => {
         <div className="col-start-1 md:col-start-2 col-end-5 ">
           <div className="bg-gray-200 rounded-xl">
             <div className="mx-3 mt-3 font-medium text-xl">
-              <h1 className="mb-3 pt-3">Điện Thoại - Máy Tính Bảng</h1>
+              <h1 className="mb-3 pt-3">Điện Gia Dụng</h1>
               <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96 pb-3 px-3">
                 <Carousel
                   slide={true}

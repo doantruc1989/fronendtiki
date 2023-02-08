@@ -8,63 +8,93 @@ import Tab from "./Tab";
 import TabSearch from "./TabSearch";
 
 
+
 const index = () => {
     const [searchs, setSearchs] = useState({});
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "điện thoại",
+      category: "giày nữ",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
-      toPrice: 2000000,
+      toPrice: 100000,
     };
     const price2 = {
-      category: "điện thoại",
+      category: "giày nữ",
       sortBy: "price",
       search: "gia2",
-      fromPrice: 2000000,
-      toPrice: 5500000,
+      fromPrice: 100000,
+      toPrice: 260000,
     };
     const price3 = {
-      category: "điện thoại",
+      category: "giày nữ",
       sortBy: "price",
       search: "gia3",
-      fromPrice: 5500000,
-      toPrice: 23000000,
+      fromPrice: 260000,
+      toPrice: 460000,
     };
     const price4 = {
-      category: "điện thoại",
+      category: "giày nữ",
       sortBy: "price",
       search: "gia4",
-      fromPrice: 23000000,
-      toPrice: 100000000,
+      fromPrice: 460000,
+      toPrice: 10000000,
     };
 
     const danhmuc1 = {
-      category: "điện thoại",
-      sortBy: "điện thoại",
+      category: "giày nữ",
+      sortBy: "gót",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "điện thoại",
-      sortBy: "bảng",
+      category: "giày nữ",
+      sortBy: "thể thao",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "điện thoại",
-      sortBy: "sách",
+      category: "giày nữ",
+      sortBy: "sandal",
       search: "danhmuc3",
     };
 
+    const danhmuc4 = {
+      category: "giày nữ",
+      sortBy: "búp bê",
+      search: "danhmuc4",
+    };
+
     const danhmuc5 = {
-      category: "điện thoại",
-      sortBy: "bàn",
+      category: "giày nữ",
+      sortBy: "xuồng",
       search: "danhmuc5",
     };
 
+    const danhmuc6 = {
+      category: "giày nữ",
+      sortBy: "boot",
+      search: "danhmuc6",
+    };
+
+    const danhmuc7 = {
+      category: "giày nữ",
+      sortBy: "dép",
+      search: "danhmuc7",
+    };
+
+    const danhmuc8 = {
+      category: "giày nữ",
+      sortBy: "lười",
+      search: "danhmuc8",
+    };
+
+    const danhmuc9 = {
+      category: "giày nữ",
+      sortBy: "phụ",
+      search: "danhmuc9",
+    };
 
   return (
     <div className="my-5">
@@ -72,7 +102,7 @@ const index = () => {
         <Breadcrumb.Item href="/" icon={HiHome}>
           Trang chủ
         </Breadcrumb.Item>
-        <Breadcrumb.Item>Điện Thoại - Máy Tính Bảng</Breadcrumb.Item>
+        <Breadcrumb.Item>Giày - Dép nữ</Breadcrumb.Item>
       </Breadcrumb>
       <div className="grid gap-6 grid-cols-4 w-11/12 mx-auto mt-5">
         <div className="md:col-start-1 md:col-end-2 hidden md:block">
@@ -83,28 +113,28 @@ const index = () => {
                 setChangeTab(true);
                 setSearchs(danhmuc1);
               }}>
-              Điện thoại Smartphone
+              Giày cao gót
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
                 setSearchs(danhmuc2);
               }}>
-           Máy tính bảng
+           Giày thể thao
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
                 setSearchs(danhmuc3);
               }}>
-           Máy đọc sách
+          Giày sandals
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
                 setChangeTab(true);
-                setSearchs(price1);
+                setSearchs(danhmuc4);
               }}>
-              Điện thoại phổ thông
+              Giày búp bê
             </button>
 
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
@@ -112,9 +142,36 @@ const index = () => {
                 setChangeTab(true);
                 setSearchs(danhmuc5);
               }}>
-            Điện thoại bàn
+              Giày Đế xuồng
             </button>
-            
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+            onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc6);
+              }}>
+              Giày boots
+            </button>
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+            onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc7);
+              }}>
+             Dép - Guốc nữ
+            </button>
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+            onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc8);
+              }}>
+             Giày lười nữ
+            </button>
+            <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
+             onClick={() => {
+                setChangeTab(true);
+                setSearchs(danhmuc9);
+              }}>
+             Phụ kiện giày
+            </button>
           </div>
 
           <div className="flex flex-col bg-gray-200 mt-3 rounded-xl p-4 leading-loose">
@@ -125,7 +182,7 @@ const index = () => {
                 setSearchs(price1);
               }}
             >
-              Dưới 2.000.000
+              Dưới 100.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
              onClick={() => {
@@ -133,7 +190,7 @@ const index = () => {
                 setSearchs(price2);
               }}
               >
-              2.000.000 to 5.500.000
+               100.000 to 260.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
@@ -141,7 +198,7 @@ const index = () => {
                 setSearchs(price3);
               }}
               >
-              5.500.000 to 23.000.000
+              260.000 to 460.000
             </button>
             <button className="ml-2 mb-2 px-2 rounded-xl bg-gray-300 w-fit"
             onClick={() => {
@@ -149,7 +206,7 @@ const index = () => {
                 setSearchs(price4);
               }}
               >
-              Trên 23.000.000
+              Trên 460.000
             </button>
           </div>
           
@@ -234,7 +291,7 @@ const index = () => {
         <div className="col-start-1 md:col-start-2 col-end-5 ">
           <div className="bg-gray-200 rounded-xl">
             <div className="mx-3 mt-3 font-medium text-xl">
-              <h1 className="mb-3 pt-3">Điện Thoại - Máy Tính Bảng</h1>
+              <h1 className="mb-3 pt-3">Giày - Dép nữ</h1>
               <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96 pb-3 px-3">
                 <Carousel
                   slide={true}
