@@ -65,11 +65,12 @@ const Hero6 = () => {
         Gợi ý hôm nay
       </h5>
       <div className="hidden md:flex md:flex-wrap content-around justify-between">
-        <Card className="cursor-pointer w-1/6 h-auto hover">
+        <Card className={"cursor-pointer w-1/6 h-auto hover "}>
           <button
             className="flex flex-col items-center"
             onClick={() => {
               setPage(1);
+             
               setCategory("đồ chơi");
               setValue("danhchoban");
               danhchoban();
@@ -86,11 +87,12 @@ const Hero6 = () => {
           </button>
         </Card>
 
-        <Card className="cursor-pointer w-1/6 h-auto hover">
+        <Card className={"cursor-pointer w-1/6 h-auto hover "}>
           <button
             className="flex flex-col items-center"
             onClick={() => {
               setPage(1);
+          
               setCategory("điện thoại");
               setValue("dichvuso");
               danhchoban();

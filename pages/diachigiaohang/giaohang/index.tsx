@@ -180,15 +180,12 @@ const index = () => {
               </div>
             </div>
             <div className="mb-2 flex items-center justify-end gap-10 mt-2">
-            <Button className="w-1/3 bg-slate-500">
-                  Huỷ bỏ
-                </Button>
-                <Button className="w-1/3">
-                  <Link href="/diachigiaohang/giaohang/thanhtoan">
+              <Button className="w-1/3 bg-slate-500">Huỷ bỏ</Button>
+              <Button className="w-1/3">
+                <Link href="/diachigiaohang/giaohang/thanhtoan">
                   Giao đến địa chỉ này
-                  </Link>
-                  
-                </Button>
+                </Link>
+              </Button>
             </div>
           </div>
         )}

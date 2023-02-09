@@ -28,17 +28,20 @@ const Hero = () => {
           {slides ?
           slides.map((newSlide: any) => {
             return (
+              <a href={newSlide.path}>
               <img
                 className="rounded-3xl md:h-64"
                 src={newSlide.image}
                 alt={newSlide.name}
                 key={newSlide.id}
               />
+              </a>
             );
+
           }) : null}
         </Carousel>
         <Carousel leftControl=" " rightControl=" " indicators={false}>
-          {rightPart ? <img className="rounded-3xl md:h-64" src={rightPart.image} alt={rightPart.name} key={rightPart.id}/> : null}
+          {rightPart ? (<a href={rightPart.path}><img className="rounded-3xl md:h-64" src={rightPart.image} alt={rightPart.name} key={rightPart.id}/></a>) : null}
         </Carousel>
       </div>
     </Card>

@@ -88,7 +88,7 @@ const Hero3 = () => {
         </Link>
       </div>
 
-      <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="gap-4 h-80 2xl:h-96">
         <Carousel slide={true} indicators={false}
         >
           <div className="grid h-auto grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 2xl:h-96">
@@ -111,7 +111,7 @@ const Hero3 = () => {
                       -{Math.floor(Math.random() * 80)}%
                     </span>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm my-3 font-bold text-gray-900 dark:text-white">
+                    <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                       {Intl.NumberFormat().format(product?.price)} đ
                     </span>
                     <Button
@@ -161,7 +161,7 @@ const Hero3 = () => {
                       -{Math.floor(Math.random() * 80)}%
                     </span>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm my-3 font-bold text-gray-900 dark:text-white">
+                    <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                       {Intl.NumberFormat().format(product?.price)} đ
                     </span>
                     <Button
@@ -212,7 +212,7 @@ const Hero3 = () => {
                       -{Math.floor(Math.random() * 80)}%
                     </span>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm my-3 font-bold text-gray-900 dark:text-white">
+                    <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                       {Intl.NumberFormat().format(product?.price)} đ
                     </span>
                     <Button

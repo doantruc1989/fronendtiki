@@ -1,4 +1,5 @@
 import { Card, Carousel } from "flowbite-react";
+import path from "path";
 import React, { useEffect, useState } from "react";
 import axiosAll from "../other/axiosAll";
 
@@ -27,11 +28,14 @@ const Hero5 = () => {
           <div className="grid gap-1 grid-cols-6">
             {collections.map((collection) => {
               return (
-                <img
-                  src={collection.image}
-                  className="rounded-xl"
-                  key={collection.id}
-                />
+                <a href={collection.path}>
+
+                  <img
+                    src={collection.image}
+                    className="rounded-xl"
+                    key={collection.id}
+                  />
+                </a>
               );
             })}
           </div>
@@ -39,11 +43,13 @@ const Hero5 = () => {
           <div className="grid gap-1 grid-cols-6">
             {nextCols.map((nextCol) => {
               return (
+                <a href={nextCol.path}>
                 <img
                   src={nextCol.image}
                   className="rounded-xl"
                   key={nextCol.id}
                 />
+                </a>
               );
             })}
           </div>

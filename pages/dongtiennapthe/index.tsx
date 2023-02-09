@@ -3,11 +3,14 @@ import React, { ReactElement } from "react";
 import { CartProvider } from "react-use-cart";
 import Layout from "../components/Layout";
 import { HiPuzzle } from "react-icons/hi";
-import Hero5 from "../components/Hero/Hero5";
+import Dongtienhero from "../components/Dongtienhero";
+import { ToastContainer } from "react-toastify";
 
 function index() {
+
   return (
-    <div className="w-9/12 mx-auto">
+    <div className="w-11/12 md:w-9/12 mx-auto">
+            <ToastContainer />
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel slideInterval={5000} indicators={true}>
           <div className="grid grid-cols-2 gap-2">
@@ -28,13 +31,12 @@ function index() {
           </div>
         </Carousel>
       </div>
-
       <div className="mb-5">
-        <div className="bg-gray-200 rounded-md mb-1 flex items-center gap-2 p-2">
+        <div className="bg-gray-200 rounded-md mb-1 flex justify-center md:justify-start items-center gap-2 p-2">
           <HiPuzzle className="text-2xl text-green-500" />
           <h2 className="text-lg font-medium">Dịch vụ tiện ích</h2>
         </div>
-        <div className="grid grid-cols-3 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
 
         <div className="bg-gray-200 rounded-md flex flex-col items-start p-2">
             <h1 className="font-medium mb-3">Thanh toán hóa đơn</h1>
@@ -232,14 +234,13 @@ function index() {
       </div>
 
       <img
-        className="mb-5"
+        className="mb-10"
         src="/image/dongtien/uudaidanhchoban.png"
         alt="uudaidanhchoban"
       />
 
-      <Hero5/>
-      <Hero5/>
-      <Hero5/>
+<Dongtienhero />
+
     </div>
   );
 }

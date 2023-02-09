@@ -3,6 +3,7 @@ import { HiOutlineShoppingCart, HiGift, HiMap } from "react-icons/hi";
 import React, { useEffect, useState } from "react";
 import axiosAll from "./other/axiosAll";
 import { useCart } from "react-use-cart";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Nav = () => {
   const { totalItems, isEmpty } = useCart();
@@ -12,6 +13,7 @@ const Nav = () => {
   const [provinces, setProvinces] = useState([]);
   const [states, setStates] = useState([]);
   const [items, setItems] = useState([]);
+  const [address, setAddress] = useState("Q. 1, P. Bến Nghé, Hồ Chí Minh");
 
   useEffect(() => {
     try {
@@ -28,7 +30,7 @@ const Nav = () => {
   };
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -55,7 +57,11 @@ const Nav = () => {
     <div className="sticky top-0 z-50 w-full mx-auto">
       <Navbar className="navbar" fluid={true} rounded={true}>
         <Navbar.Brand href="/">
-          <img src="image/logotiki.png" className="mr-3 h-10 md:h-14" alt="tiki Logo" />
+          <img
+            src="image/logotiki.png"
+            className="mr-3 h-10 md:h-14"
+            alt="tiki Logo"
+          />
         </Navbar.Brand>
 
         <div className="md:flex md:items-center md:flex-col md:w-2/4">
@@ -126,11 +132,11 @@ const Nav = () => {
             </button>
           </form>
           <div className="hidden md:justify-start md:flex">
-            <a href="/ngon"> trái cây, </a>
-            <a href="/ngon"> thịt, trứng, </a>
-            <a href="/ngon"> rau, củ, quả, </a>
-            <a href="/ngon"> hải sản, mì gói, </a>
-            <a href="/ngon"> bia, rượu </a>
+            <a href="/dienthoaimaytinhbang">iphone ,</a>
+            <a href="/dienthoaimaytinhbang">android ,xiaomi ,</a>
+            <a href="/dienthoaimaytinhbang">Oppo ,ios ,apple ,</a>
+            <a href="/dienthoaimaytinhbang">máy tính bảng ,</a>
+            <a href="/dienthoaimaytinhbang">realme </a>
           </div>
         </div>
 
@@ -142,9 +148,12 @@ const Nav = () => {
                 <span className="text-lg">Astra</span>
               </Button>
               <Button className="navbutton relative" href="/cart">
-                
                 <HiOutlineShoppingCart className="mr-2 text-xl" />
-                {isEmpty ? null : <span className="bg-red-500 rounded-full px-2 py-1 text-white absolute top-0 right-1 text-xs">{totalItems}</span>}
+                {isEmpty ? null : (
+                  <span className="bg-red-500 rounded-full px-2 py-1 text-white absolute top-0 right-1 text-xs">
+                    {totalItems}
+                  </span>
+                )}
               </Button>
             </div>
 
@@ -175,9 +184,11 @@ const Nav = () => {
           </div>
           <div className="flex items-center">
             <HiMap className="navbutton" />
-            <a className="ml-2 navfont cursor-pointer text-xs" onClick={handleModals}>
-              Giao đến:{" "}
-              <b className="text-black text-xs">Q. 1, P. Bến Nghé, Hồ Chí Minh</b>
+            <a
+              className="ml-2 navfont cursor-pointer text-xs"
+              onClick={handleModals}
+            >
+              Giao đến: <b className="text-black text-xs">{address}</b>
             </a>
           </div>
 
@@ -208,28 +219,29 @@ const Nav = () => {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <div className="flex items-start mb-4 flex-col ml-10">
+              <div className="flex items-start mb-4 flex-col w-11/12 mx-auto">
                 <div className="flex items-center mb-4">
                   <input
                     // checked
                     id="default-radio-1"
                     type="radio"
-                    value=""
+                    value="Q. 1, P. Bến Nghé, Hồ Chí Minh"
                     name="default-radio"
+                    onClick={() => setIsOpen(false)}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
                     htmlFor="default-radio-1"
                     className="ml-2 text-md font-medium text-gray-900 dark:text-gray-300"
                   >
-                    TP. Hồ Chí Minh
+                    Q. 1, P. Bến Nghé, Hồ Chí Minh
                   </label>
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center mb-5">
                   <input
                     id="default-radio-2"
                     type="radio"
-                    value=""
+                    value={`${city} + ${states}`}
                     name="default-radio"
                     onClick={handleClick}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -243,27 +255,49 @@ const Nav = () => {
                 </div>
                 <div
                   className={
-                    "flex items-start flex-col " +
+                    "flex items-start flex-col my-5 w-full " +
                     (isOpen ? "visible" : "invisible")
                   }
                 >
-                  <label>City:</label>
-                  <select
-                    value={city}
-                    onChange={(e: any) => setCity(e.target.value)}
-                  >
-                    {provinces.map((province: any) => (
-                      <option value={province.name} key={province.id}>{province.name}</option>
-                    ))}
-                  </select>
-                  <label>State:</label>
-                  <select>
-                    {states?.map((state: any) => (
-                      <option value={state.name} key={state.id}>{state.name}</option>
-                    ))}
-                  </select>
+                  <div className="flex gap-3 items-center mb-4 justify-between w-full">
+                    <label>Tỉnh/Thành phố:</label>
+                    <select
+                      value={city}
+                      onChange={(e: any) => {
+                        setCity(e.target.value);
+                        setAddress(e.target.value);
+                      }}
+                      className="border rounded-lg w-2/3"
+                    >
+                      {provinces.map((province: any) => (
+                        <option value={province.name} key={province.id}>
+                          {province.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="flex gap-3 items-center justify-between w-full">
+                    <label>Quận/Huyện:</label>
+                    <select
+                      className="border rounded-lg w-2/3"
+                      onChange={(e: any) =>
+                        setAddress([...city, ",", " ", e.target.value])
+                      }
+                    >
+                      {states?.map((state: any) => (
+                        <option value={state.name} key={state.id}>
+                          {state.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-                <Button>GIAO ĐẾN ĐỊA CHỈ NÀY</Button>
+                <Button
+                  className="my-5 w-full"
+                  onClick={() => setModals(false)}
+                >
+                  GIAO ĐẾN ĐỊA CHỈ NÀY
+                </Button>
               </div>
             </Modal.Footer>
           </Modal>
@@ -271,10 +305,11 @@ const Nav = () => {
 
         <Navbar.Collapse className="md:hidden">
           <div className="grid grid-cols-2">
-          {items
-            ? items.map((item: any) => {
-                return <Navbar.Link href={item.path} key={item.id}>
-                  <div className="flex items-center">
+            {items
+              ? items.map((item: any) => {
+                  return (
+                    <Navbar.Link href={item.path} key={item.id}>
+                      <div className="flex items-center">
                         <img
                           className="h-6 w-6 rounded-lg shadow-lg mr-1"
                           src={item.image}
@@ -282,11 +317,11 @@ const Nav = () => {
                         />
                         <p className="capitalize text-sm">{item.category}</p>
                       </div>
-                  </Navbar.Link>;
-              })
-            : null}
+                    </Navbar.Link>
+                  );
+                })
+              : null}
           </div>
-          
         </Navbar.Collapse>
       </Navbar>
     </div>

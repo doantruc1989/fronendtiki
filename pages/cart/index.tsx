@@ -1,6 +1,5 @@
 import { Button, Table } from "flowbite-react";
 import React, { ReactElement } from "react";
-import { toast } from "react-toastify";
 import { CartProvider, useCart } from "react-use-cart";
 import Layout from "../components/Layout";
 import {
@@ -19,7 +18,7 @@ const index = () => {
           <h1 className="text-2xl font-medium flex justify-center py-6">
             Giỏ hàng
           </h1>
-          <div className="grid lg:grid-cols-4 w-11/12 mx-auto mb-10 gap-4 items-end">
+          <div className="grid lg:grid-cols-4 w-11/12 mx-auto mb-10 gap-4">
             <div className="lg:col-start-1 lg:col-end-4">
               <Table striped={true}>
                 <Table.Head>
@@ -82,7 +81,7 @@ const index = () => {
                 </Table.Body>
               </Table>
             </div>
-            <div>
+            <div className="lg:fixed lg:right-14 lg:top-21 lg:w-1/5 lg:z-50">
               <div className="bg-gray-200 rounded-xl h-fit p-4">
                 <div className="flex justify-between mb-4">
                   <h3>Tạm tính</h3>
