@@ -2,12 +2,17 @@ import { Button, Label, Radio, Select, TextInput } from "flowbite-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axiosAll from "../../components/other/axiosAll";
+import axiosHeader from "../../components/other/axiosHeader";
 
 const Index = () => {
+  const [users, setUsers] = useState([] as any)
   const [isOpen, setIsOpen] = useState(false);
   const [city, setCity] = useState();
   const [provinces, setProvinces] = useState([]);
   const [states, setStates] = useState([]);
+
+  const user = localStorage.getItem('user') || " ";
+  const id = (JSON.parse(user)).id
 
   const handleClick = () => {
     try {
@@ -18,6 +23,16 @@ const Index = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+  try {
+    axiosHeader.get(`/users/${id}`).then((res) => {
+      setUsers(res?.data);
+    });
+  } catch (error) {
+    console.log(error)
+  }
+  })
 
   useEffect(() => {
     try {
@@ -101,6 +116,7 @@ const Index = () => {
               <Label htmlFor="name" color="info" value="Họ tên" />
               <TextInput
                 id="name"
+                value={users.name}
                 placeholder="Doan Truc"
                 required={true}
                 color="info"

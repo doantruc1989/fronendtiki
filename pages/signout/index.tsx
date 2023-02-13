@@ -1,22 +1,28 @@
-import axios from 'axios'
-import React from 'react'
-import axiosAll from '../components/other/axiosAll'
+import axios from "axios";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import axiosHeader, { refresh } from "../components/other/axiosHeader";
 
-function Index  () {
+function Index() {
+  useEffect(() => {
+    try {
+      axiosHeader.get("/auth/logout").then((res) => {
+        console.log("res ", res.data.response);
+        localStorage.removeItem("user");
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
-  axios.post('http://localhost:3006/authentication/log-out', {
-   id: 3,
-  })
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
   return (
-    <div>Signout thanh cong</div>
-  )
+    <div className="flex flex-col justify-center items-center my-10">
+      <p className="text-md">Signout successfully</p>
+      <Link href="/" className="font-medium text-blue-700 text-md mt-4">
+        Back to Home page
+      </Link>
+    </div>
+  );
 }
 
-export default Index
+export default Index;

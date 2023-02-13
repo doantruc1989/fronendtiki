@@ -5,6 +5,7 @@ import axiosAll from "./other/axiosAll";
 import { useCart } from "react-use-cart";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import axiosHeader from "./other/axiosHeader";
 
 const Nav = () => {
   const { totalItems, isEmpty } = useCart();
@@ -13,9 +14,14 @@ const Nav = () => {
   const [city, setCity] = useState();
   const [provinces, setProvinces] = useState([]);
   const [states, setStates] = useState([]);
+  const [address2, setAddress2] = useState([])
   const [items, setItems] = useState([]);
   const [address, setAddress] = useState("Q. 1, P. Bến Nghé, Hồ Chí Minh");
   const [users, setUsers] = useState([] as any);
+
+  // const user = localStorage.getItem('user') || " ";
+  // const id = (JSON.parse(user)).id
+
 
   useEffect(() => {
     const userFromLocal = localStorage.hasOwnProperty("user")
@@ -61,6 +67,20 @@ const Nav = () => {
       console.log(error);
     }
   }, [city]);
+
+  const handlethisModal = () => {
+    setModals(false)
+    // if(user) {
+    //   try {
+    //     axiosHeader.patch(`/users/${id}`, {id, address1: city, address2: address2})
+    //     .then(res => {
+    //       console.log(res?.data)
+    //     })
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
+  }
 
   return (
     <div className="sticky top-0 z-50 w-full mx-auto">
@@ -170,13 +190,13 @@ const Nav = () => {
                 arrowIcon={false}
                 inline={true}
                 label={
-                  <Avatar alt={users.email} img={users.image} rounded={true} />
+                  <Avatar alt={users.username} img={users.image} rounded={true} />
                 }
               >
                 <Dropdown.Header>
-                  <p className="block text-sm">{users.name || users.email}</p>
+                  {/* <p className="block text-sm">{users.username}</p> */}
                   <p className="block truncate text-sm font-medium">
-                    {users.email}
+                    {users.email || users.username}
                   </p>
                 </Dropdown.Header>
                 <Dropdown.Item className="capitalize">
@@ -187,8 +207,8 @@ const Nav = () => {
                       <Link href={"/adminpage"}>Admin dashboard</Link>
                     )
                   } */}
-                  <Link href={`/${users.role}page`}>
-                    {users.role + " page"}
+                  <Link href={`/${users.roles}page`}>
+                    {users.roles + " page"}
                   </Link>
                 </Dropdown.Item>
                 <Dropdown.Divider />
@@ -297,12 +317,13 @@ const Nav = () => {
                       <select
                         className="border rounded-lg w-2/3"
                         onChange={(e: any) =>
+                         { setAddress2( e.target.value)
                           setAddress([
                             ...(city as any),
                             ",",
                             " ",
                             e.target.value,
-                          ] as any)
+                          ] as any)}
                         }
                       >
                         {states?.map((state: any) => (
@@ -316,7 +337,7 @@ const Nav = () => {
                 ) : null}
                 <Button
                   className="my-5 w-full"
-                  onClick={() => setModals(false)}
+                  onClick={handlethisModal}
                 >
                   GIAO ĐẾN ĐỊA CHỈ NÀY
                 </Button>
