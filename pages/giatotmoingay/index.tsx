@@ -4,7 +4,7 @@ import { CartProvider } from "react-use-cart";
 import Layout from "../components/Layout";
 import ListProductgiatot from "../components/ListProductgiatot";
 
-function index() {
+function Index() {
   const phobien = {
     category: "điện thoại",
     sortBy: "price",
@@ -100,7 +100,7 @@ function index() {
   );
 }
 
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
   return (
     <CartProvider>
       <Layout>
@@ -110,4 +110,4 @@ index.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export default index;
+export default Index;

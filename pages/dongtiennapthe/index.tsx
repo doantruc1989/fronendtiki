@@ -6,7 +6,7 @@ import { HiPuzzle } from "react-icons/hi";
 import Dongtienhero from "../components/Dongtienhero";
 import { ToastContainer } from "react-toastify";
 
-function index() {
+function Index() {
 
   return (
     <div className="w-11/12 md:w-9/12 mx-auto">
@@ -47,7 +47,7 @@ function index() {
                   src="/image/dongtien/dien.png"
                   alt="dien"
                 />
-                <span>Điện</span>
+                <p>Điện</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -55,8 +55,8 @@ function index() {
                   src="/image/dongtien/thanhtoankhoanvay.png"
                   alt="thanhtoankhoanvay"
                 />
-                <span>Thanh toán</span>
-                <span>khoản vay</span>
+                <p>Thanh toán</p>
+                <p>khoản vay</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -64,7 +64,7 @@ function index() {
                   src="/image/dongtien/nuoc.png"
                   alt="nuoc"
                 />
-                <span>Nước</span>
+                <p>Nước</p>
               </div>
             </div>
           </div>
@@ -78,8 +78,8 @@ function index() {
                   src="/image/dongtien/naptiendienthoai.png"
                   alt="naptiendienthoai"
                 />
-                <span>Nạp tiền</span>
-                <span>điện thoại</span>
+                <p>Nạp tiền</p>
+                <p>điện thoại</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -87,7 +87,7 @@ function index() {
                   src="/image/dongtien/thedienthoai.png"
                   alt="thedienthoai"
                 />
-                <span>Thẻ điện thoại</span>
+                <p>Thẻ điện thoại</p>
                 
               </div>
               <div className="flex flex-col items-center">
@@ -96,7 +96,7 @@ function index() {
                   src="/image/dongtien/thegame.png"
                   alt="thegame"
                 />
-                <span>Thẻ game</span>
+                <p>Thẻ game</p>
               </div>
             </div>
           </div>
@@ -110,8 +110,8 @@ function index() {
                   src="/image/dongtien/baohiemtiki360.png"
                   alt="baohiemtiki360"
                 />
-                <span>Bảo hiểm</span>
-                <span>Tiki 360</span>
+                <p>Bảo hiểm</p>
+                <p>Tiki 360</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -119,8 +119,8 @@ function index() {
                   src="/image/dongtien/baohiemxemay.png"
                   alt="baohiemxemay"
                 />
-                <span>Bảo hiểm</span>
-                <span>xe máy</span>
+                <p>Bảo hiểm</p>
+                <p>xe máy</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -128,8 +128,8 @@ function index() {
                   src="/image/dongtien/baohiemotobatbuoc.png"
                   alt="baohiemotobatbuoc"
                 />
-                <span>Bảo hiểm</span>
-                <span>oto bắt buộc</span>
+                <p>Bảo hiểm</p>
+                <p>oto bắt buộc</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -137,8 +137,8 @@ function index() {
                   src="/image/dongtien/bhdulichliberty.png"
                   alt="bhdulichliberty"
                 />
-                <span>BH du lịch</span>
-                <span>Liberty</span>
+                <p>BH du lịch</p>
+                <p>Liberty</p>
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ function index() {
                   src="/image/dongtien/vouchervip.png"
                   alt="vouchervip"
                 />
-                <span>Voucher VIP</span>
+                <p>Voucher VIP</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -160,8 +160,8 @@ function index() {
                   src="/image/dongtien/dulichkhachsan.png"
                   alt="dulichkhachsan"
                 />
-                <span>Du Lịch - </span>
-                <span>Khách sạn</span>
+                <p>Du Lịch - </p>
+                <p>Khách sạn</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -169,8 +169,8 @@ function index() {
                   src="/image/dongtien/nhahanganuong.png"
                   alt="nhahanganuong"
                 />
-                <span>Nhà Hàng Ăn</span>
-                <span>Uống</span>
+                <p>Nhà Hàng Ăn</p>
+                <p>Uống</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -178,7 +178,7 @@ function index() {
                   src="/image/dongtien/khoahoc.png"
                   alt="khoahoc"
                 />
-                <span>Khoá Học</span>
+                <p>Khoá Học</p>
               </div>
             </div>
           </div>
@@ -192,8 +192,8 @@ function index() {
                   src="/image/dongtien/muavetaiticketbox.png"
                   alt="muavetaiticketbox"
                 />
-                <span>Mua vé tại</span>
-                <span>Ticketbox</span>
+                <p>Mua vé tại</p>
+                <p>Ticketbox</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -201,8 +201,8 @@ function index() {
                   src="/image/dongtien/vevuichoigiaitri.png"
                   alt="vevuichoigiaitri"
                 />
-                <span>Vé Vui Chơi</span>
-                <span>Giải Trí</span>
+                <p>Vé Vui Chơi</p>
+                <p>Giải Trí</p>
               </div>
             </div>
           </div>
@@ -216,8 +216,8 @@ function index() {
                   src="/image/dongtien/phieuquatang.png"
                   alt="phieuquatang"
                 />
-                <span>Phiếu quà</span>
-                <span> tặng</span>
+                <p>Phiếu quà</p>
+                <p> tặng</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
@@ -225,7 +225,7 @@ function index() {
                   src="/image/dongtien/tikixu.png"
                   alt="tikixu"
                 />
-                <span>Top-up TikiXU</span>
+                <p>Top-up TikiXU</p>
               </div>
             </div>
           </div>
@@ -244,7 +244,7 @@ function index() {
     </div>
   );
 }
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
   return (
     <CartProvider>
       <Layout>
@@ -253,4 +253,4 @@ index.getLayout = function getLayout(page: ReactElement) {
     </CartProvider>
   );
 };
-export default index;
+export default Index;

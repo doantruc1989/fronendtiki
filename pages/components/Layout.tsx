@@ -4,11 +4,11 @@ import Footera from "./Footer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
+    <React.Fragment>
       <Nav />
         <main>{children}</main>
       <Footera />
-    </>
+    </React.Fragment>
   );
 };
 

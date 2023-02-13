@@ -2,14 +2,14 @@ import { Button, Modal, Rating } from "flowbite-react";
 import React, { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useCart } from "react-use-cart";
-import axiosAll from "../components/other/axiosAll";
+import axiosAll from "./other/axiosAll";
 
-const ListProductdetail = ({prop}) => {
+const ListProductdetail = ({prop}: any) => {
   const { addItem } = useCart();
   const [products, setProducts] = useState([]);
   const [modals, setModals] = useState(false);
-  const [productDetail, setProductDetail] = useState([]);
-  const clickref = useRef();
+  const [productDetail, setProductDetail] = useState([] as any);
+  const clickref: any = useRef();
 
   useEffect(() => {
     let handler = (e: any) => {
@@ -35,11 +35,11 @@ const ListProductdetail = ({prop}) => {
   }, [prop]);
 
   return (
-    <>
+    <React.Fragment>
       <ToastContainer />
       <div className="grid gap-1 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-3">
         {products
-          ? products.map((product) => {
+          ? products.map((product: any) => {
               return (
                 <div className="rounded-lg bg-white mb-4" key={product?.id}>
                   <img
@@ -52,6 +52,7 @@ const ListProductdetail = ({prop}) => {
                         });
                     }}
                     src={product?.image}
+                    alt="..."
                     className="rounded-t-lg cursor-pointer w-fit h-fit"
                   />
                   <a
@@ -69,9 +70,9 @@ const ListProductdetail = ({prop}) => {
                     </h5>
                   </a>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm font-bold text-gray-900 dark:text-white my-1">
+                    <p className="text-sm font-bold text-gray-900 dark:text-white my-1">
                       {Intl.NumberFormat().format(product?.price)} đ
-                    </span>
+                    </p>
                     <Button
                       className="mb-5 mt-2"
                       onClick={() => {
@@ -103,6 +104,7 @@ const ListProductdetail = ({prop}) => {
               <img
                 src={productDetail?.image}
                 className="w-80 h-fit rounded-lg"
+                alt="..."
               />
               <div>
                 <div className="text-xs mb-3 flex">
@@ -118,10 +120,10 @@ const ListProductdetail = ({prop}) => {
                   <div>
                     <Rating>
                       <Rating.Star />
-                      <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white mr-4">
                         4.95
                       </p>
-                      <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+                   
                       <a
                         href="#"
                         className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
@@ -150,7 +152,7 @@ const ListProductdetail = ({prop}) => {
           </Modal.Body>
         </Modal>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

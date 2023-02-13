@@ -26,14 +26,15 @@ const Hero5 = () => {
       <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel slide={false} indicators={false}>
           <div className="grid gap-1 grid-cols-6">
-            {collections.map((collection) => {
+            {collections.map((collection : any) => {
               return (
-                <a href={collection.path}>
+                <a href={collection.path} key={collection.id}>
 
                   <img
                     src={collection.image}
+                    alt="..."
                     className="rounded-xl"
-                    key={collection.id}
+                   
                   />
                 </a>
               );
@@ -41,13 +42,13 @@ const Hero5 = () => {
           </div>
 
           <div className="grid gap-1 grid-cols-6">
-            {nextCols.map((nextCol) => {
+            {nextCols.map((nextCol : any) => {
               return (
-                <a href={nextCol.path}>
+                <a href={nextCol.path} key={nextCol.id}>
                 <img
                   src={nextCol.image}
                   className="rounded-xl"
-                  key={nextCol.id}
+                  alt="..."
                 />
                 </a>
               );

@@ -20,7 +20,7 @@ const Hero2 = () => {
         <h5 className="text-base md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white mr-3">
           Thương Hiệu Chính Hãng
         </h5>
-        <img className="w-22 h-6" src="/image/official.png" />
+        <img className="w-22 h-6" src="/image/official.png" alt="..."/>
       </div>
       <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel
@@ -31,7 +31,7 @@ const Hero2 = () => {
         >
           <div className="grid gap-1 grid-cols-6">
             {brands ?
-              brands.map(brand => {
+              brands.map((brand: any) => {
                 return (
                   <img
                   src={brand.image}

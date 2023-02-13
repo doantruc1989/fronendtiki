@@ -21,8 +21,8 @@ const Hero3 = () => {
   const [products3, setProducts3] = useState([]);
   const [page, setPage] = useState(2);
   const [modals, setModals] = useState(false);
-  const [productDetail, setProductDetail] = useState();
-  const clickref = useRef();
+  const [productDetail, setProductDetail] = useState([] as any);
+  const clickref: any = useRef();
 
   useEffect(() => {
     let handler = (e: any) => {
@@ -92,7 +92,7 @@ const Hero3 = () => {
         <Carousel slide={true} indicators={false}
         >
           <div className="grid h-auto grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 2xl:h-96">
-            {products.map((product) => {
+            {products.map((product : any) => {
               return (
                 <div className="rounded-lg bg-white mb-4 relative" key={product?.id}>
                   <img
@@ -106,14 +106,15 @@ const Hero3 = () => {
                     }}
                     src={product?.image}
                     className="rounded-t-lg cursor-pointer w-fit h-fit relative"
+                    alt="..."
                   /> 
-                             <span className="absolute top-4 text-xs left-2 bg-red-400 text-red-700 p-0.5 rounded-md">
+                             <p className="absolute top-4 text-xs left-2 bg-red-400 text-red-700 p-0.5 rounded-md">
                       -{Math.floor(Math.random() * 80)}%
-                    </span>
+                    </p>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
+                    <p className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                       {Intl.NumberFormat().format(product?.price)} đ
-                    </span>
+                    </p>
                     <Button
                       className="w-fit mb-3"
                       onClick={() => {
@@ -142,7 +143,7 @@ const Hero3 = () => {
 
           </div>
           <div className="grid h-auto grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 2xl:h-96">
-            {products2.map((product) => {
+            {products2.map((product: any) => {
               return (
                 <div className="rounded-lg bg-white mb-4 relative" key={product?.id}>
                   <img
@@ -156,14 +157,15 @@ const Hero3 = () => {
                     }}
                     src={product?.image}
                     className="rounded-t-lg cursor-pointer w-fit h-fit relative"
+                    alt="..."
                   /> 
-                             <span className="absolute top-4 text-xs left-2 bg-red-400 text-red-700 p-0.5 rounded-md">
+                             <p className="absolute top-4 text-xs left-2 bg-red-400 text-red-700 p-0.5 rounded-md">
                       -{Math.floor(Math.random() * 80)}%
-                    </span>
+                    </p>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
+                    <p className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                       {Intl.NumberFormat().format(product?.price)} đ
-                    </span>
+                    </p>
                     <Button
                       className="w-fit mb-3"
                       onClick={() => {
@@ -193,7 +195,7 @@ const Hero3 = () => {
           </div>
 
           <div className="grid h-auto grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 2xl:h-96">
-            {products3.map((product) => {
+            {products3.map((product: any) => {
               return (
                 <div className="rounded-lg bg-white mb-4 relative" key={product?.id}>
                   <img
@@ -207,14 +209,15 @@ const Hero3 = () => {
                     }}
                     src={product?.image}
                     className="rounded-t-lg cursor-pointer w-fit h-fit relative"
+                    alt="..."
                   /> 
-                             <span className="absolute top-4 text-xs left-2 bg-red-400 text-red-700 p-0.5 rounded-md">
+                             <p className="absolute top-4 text-xs left-2 bg-red-400 text-red-700 p-0.5 rounded-md">
                       -{Math.floor(Math.random() * 80)}%
-                    </span>
+                    </p>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
+                    <p className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                       {Intl.NumberFormat().format(product?.price)} đ
-                    </span>
+                    </p>
                     <Button
                       className="w-fit mb-3"
                       onClick={() => {
@@ -256,6 +259,7 @@ const Hero3 = () => {
                   <img
                     src={productDetail?.image}
                     className="w-80 h-fit rounded-lg"
+                    alt="..."
                   />
                   <div>
                     <div className="text-xs mb-3 flex">
@@ -271,10 +275,10 @@ const Hero3 = () => {
                       <div>
                         <Rating>
                           <Rating.Star />
-                          <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+                          <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white mr-4">
                             4.95
                           </p>
-                          <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+                          
                           <a
                             href="#"
                             className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"

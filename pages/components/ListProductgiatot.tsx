@@ -3,14 +3,14 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useCart } from "react-use-cart";
-import axiosAll from "../components/other/axiosAll";
+import axiosAll from "./other/axiosAll";
 
-const ListProductgiatot = ({ prop }) => {
+const ListProductgiatot = ({ prop }:any) => {
   const { addItem } = useCart();
   const [products, setProducts] = useState([]);
   const [modals, setModals] = useState(false);
-  const [productDetail, setProductDetail] = useState([]);
-  const clickref = useRef();
+  const [productDetail, setProductDetail] = useState([] as any);
+  const clickref: any = useRef();
 
   useEffect(() => {
     let handler = (e: any) => {
@@ -39,11 +39,11 @@ const ListProductgiatot = ({ prop }) => {
   }, [prop]);
 
   return (
-    <>
+    <React.Fragment>
       <ToastContainer />
       <div className="grid gap-1 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-3">
         {products
-          ? products.map((product) => {
+          ? products.map((product:any) => {
               return (
                 <div className="rounded-lg bg-white mb-4" key={product?.id}>
                   <img
@@ -57,6 +57,7 @@ const ListProductgiatot = ({ prop }) => {
                     }}
                     src={product?.image}
                     className="rounded-t-lg cursor-pointer w-fit h-fit"
+                    alt="..."
                   />
                   <a
                     onClick={() => {
@@ -73,9 +74,9 @@ const ListProductgiatot = ({ prop }) => {
                     </h5>
                   </a>
                   <div className="flex items-center flex-col justify-between">
-                    <span className="text-sm font-bold text-gray-900 dark:text-white my-1">
+                    <p className="text-sm font-bold text-gray-900 dark:text-white my-1">
                       {Intl.NumberFormat().format(product?.price)} đ
-                    </span>
+                    </p>
                     <Button
                       className="mb-5 mt-2"
                       onClick={() => {
@@ -108,6 +109,7 @@ const ListProductgiatot = ({ prop }) => {
               <img
                 src={productDetail?.image}
                 className="w-80 h-fit rounded-lg"
+                alt="..."
               />
               <div>
                 <div className="text-xs mb-3 flex">
@@ -123,10 +125,10 @@ const ListProductgiatot = ({ prop }) => {
                   <div>
                     <Rating>
                       <Rating.Star />
-                      <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white mr-4">
                         4.95
                       </p>
-                      <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+                
                       <a
                         href="#"
                         className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
@@ -155,11 +157,11 @@ const ListProductgiatot = ({ prop }) => {
         </Modal>
       </div>
       <Link href={prop.path} className="flex justify-center items-center mt-2">
-        <span className="w-fit mb-5 border border-blue-600 py-2 rounded-xl px-3 font-medium text-base text-white bg-blue-500">
+        <p className="w-fit mb-5 border border-blue-600 py-2 rounded-xl px-3 font-medium text-base text-white bg-blue-500">
           Xem thêm
-        </span>
+        </p>
       </Link>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -2,9 +2,18 @@ import { Card, Carousel } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import axiosAll from "../other/axiosAll";
 
+export interface rightPart {
+  map(arg0: (rightPart: any) => JSX.Element): import("react").ReactNode;
+  id: number,
+  image: string,
+  category: string,
+  path: string,
+
+}
+
 const Hero = () => {
   const [slides, setSlides] = useState([]);
-  const [rightPart, setRightPart] = useState([]);
+  const [rightPart, setRightPart] = useState<rightPart>([] as any);
 
   useEffect(() => {
     try {
@@ -28,7 +37,7 @@ const Hero = () => {
           {slides ?
           slides.map((newSlide: any) => {
             return (
-              <a href={newSlide.path}>
+              <a href={newSlide.path} key={newSlide.id}>
               <img
                 className="rounded-3xl md:h-64"
                 src={newSlide.image}
@@ -41,7 +50,7 @@ const Hero = () => {
           }) : null}
         </Carousel>
         <Carousel leftControl=" " rightControl=" " indicators={false}>
-          {rightPart ? (<a href={rightPart.path}><img className="rounded-3xl md:h-64" src={rightPart.image} alt={rightPart.name} key={rightPart.id}/></a>) : null}
+          {rightPart ? (<a href={rightPart.path}><img className="rounded-3xl md:h-64" src={rightPart.image} alt={rightPart.category} key={rightPart.id}/></a>) : null}
         </Carousel>
       </div>
     </Card>

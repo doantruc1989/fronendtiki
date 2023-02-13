@@ -6,13 +6,13 @@ import axiosAll from "../other/axiosAll";
 
 const Hero6 = () => {
   const { addItem } = useCart();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([] as any);
   const [page, setPage] = useState(2);
   const [value, setValue] = useState("danhchoban");
   const [category, setCategory] = useState("đồ chơi");
   const [modals, setModals] = useState(false);
-  const [productDetail, setProductDetail] = useState();
-  const clickref = useRef();
+  const [productDetail, setProductDetail] = useState([] as any);
+  const clickref: any = useRef();
 
   useEffect(() => {
     let handler = (e: any) => {
@@ -81,9 +81,9 @@ const Hero6 = () => {
               src="image/danhchoban.png"
               alt="Bonnie image"
             />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Dành cho bạn
-            </span>
+            </p>
           </button>
         </Card>
 
@@ -103,9 +103,9 @@ const Hero6 = () => {
               src="image/dichvuso.png"
               alt="Bonnie image"
             />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Dịch vụ số
-            </span>
+            </p>
           </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
@@ -123,9 +123,9 @@ const Hero6 = () => {
               src="image/dealsieuhot.png"
               alt="Bonnie image"
             />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Deal siêu hot
-            </span>
+            </p>
           </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
@@ -143,9 +143,9 @@ const Hero6 = () => {
               src="image/revodoi.png"
               alt="Bonnie image"
             />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Rẻ vô đối
-            </span>
+            </p>
           </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
@@ -163,9 +163,9 @@ const Hero6 = () => {
               src="image/thoitrang.png"
               alt="Bonnie image"
             />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Thời trang
-            </span>
+            </p>
           </button>
         </Card>
         <Card className="cursor-pointer w-1/6 h-auto hover">
@@ -181,15 +181,15 @@ const Hero6 = () => {
               src="image/trending.png"
               alt="Bonnie image"
             />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Trending
-            </span>
+            </p>
           </button>
         </Card>
       </div>
       {/* <div className=" flex flex-wrap content-around justify-between"> */}
       <div className="grid xl:grid-cols-6 gap-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {products.map((product) => {
+        {products.map((product : any) => {
           return (
             <div className="rounded-lg bg-white mb-4" key={product?.id}>
               <img
@@ -201,6 +201,7 @@ const Hero6 = () => {
                 }}
                 src={product?.image}
                 className="rounded-t-lg cursor-pointer w-fit h-fit"
+                alt="..."
               />
               <a
                 onClick={() => {
@@ -215,9 +216,9 @@ const Hero6 = () => {
                 </h5>
               </a>
               <div className="flex items-center flex-col justify-between">
-                <span className="text-sm font-bold text-gray-900 dark:text-white my-1">
+                <p className="text-sm font-bold text-gray-900 dark:text-white my-1">
                   {Intl.NumberFormat().format(product?.price)} đ
-                </span>
+                </p>
                 <Button
                   className="mb-5 mt-2"
                   onClick={() => {
@@ -248,6 +249,7 @@ const Hero6 = () => {
               <img
                 src={productDetail?.image}
                 className="w-80 h-fit rounded-lg"
+                alt="..."
               />
               <div>
                 <div className="text-xs mb-3 flex">
@@ -263,10 +265,10 @@ const Hero6 = () => {
                   <div>
                     <Rating>
                       <Rating.Star />
-                      <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white mr-4">
                         4.95
                       </p>
-                      <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+                     
                       <a
                         href="#"
                         className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"

@@ -9,7 +9,7 @@ import TabSearch from "./TabSearch";
 
 
 
-const index = () => {
+const Index = () => {
     const [searchs, setSearchs] = useState({});
     const [changeTab, setChangeTab] = useState(false);
 
@@ -330,7 +330,7 @@ const index = () => {
   );
 };
 
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
   return (
     <CartProvider>
       <Layout>
@@ -340,4 +340,4 @@ index.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export default index;
+export default Index;

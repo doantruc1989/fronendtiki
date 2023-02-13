@@ -2,7 +2,7 @@ import { Tabs } from "flowbite-react";
 import React from "react";
 import ListProductdetail from "../components/ListProductdetail";
 
-const TabSearch = ({ prop }) => {
+const TabSearch = ({ prop }: any) => {
   return (
     <div>
       <div className="bg-gray-200 rounded-xl">

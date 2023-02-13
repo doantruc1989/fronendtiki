@@ -1,7 +1,8 @@
 import axiosAll from '../components/other/axiosAll';
-import { Alert, Button, Checkbox, Label, TextInput } from 'flowbite-react'
+import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
 import React, { useState } from 'react'
-import { HiInformationCircle } from 'react-icons/hi'
+import router from 'next/router';
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -10,15 +11,17 @@ const Login = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            const response = await axiosAll.post('authentication/log-in',
+            const response = await axiosAll.post('/auth/signin',
                 JSON.stringify({ email, password }),
             );
+            
             console.log(JSON.stringify(response?.data));
             // const accessToken = response?.data?.access_token;
             // const roles = response?.data?.roles;
             // const id = response?.data?.id;
 
             localStorage.setItem("user", JSON.stringify(response?.data));
+            router.push('http://localhost:3000')
             // setAuth({ username, roles, accessToken, id });
             // setUsername('');
             // setPassword('');
@@ -27,6 +30,8 @@ const Login = () => {
             console.log(err)
         }
     }
+
+console.log(email, password)
 
     const handleChangeEmail = (e: any) => {
         setEmail(e.target.value)
@@ -37,7 +42,7 @@ const Login = () => {
     }
 
     return (
-        <>
+        <React.Fragment>
             <div className='my-10 md:flex items-center justify-center'>
                 <form className="flex pt-10 flex-col gap-4 md:w-2/4" onSubmit={handleSubmit}>
                     <h1 className='text-lg text-center uppercase font-semibold'>Login</h1>
@@ -83,7 +88,7 @@ const Login = () => {
                     </Button>
                 </form>
             </div>
-        </>
+        </React.Fragment>
     )
 }
 

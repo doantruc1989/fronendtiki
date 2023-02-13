@@ -1,9 +1,10 @@
 import { Avatar, Button, Dropdown, Modal, Navbar } from "flowbite-react";
-import { HiOutlineShoppingCart, HiGift, HiMap } from "react-icons/hi";
+import { HiOutlineShoppingCart, HiGift, HiMap, HiUser } from "react-icons/hi";
 import React, { useEffect, useState } from "react";
 import axiosAll from "./other/axiosAll";
 import { useCart } from "react-use-cart";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 
 const Nav = () => {
   const { totalItems, isEmpty } = useCart();
@@ -14,6 +15,14 @@ const Nav = () => {
   const [states, setStates] = useState([]);
   const [items, setItems] = useState([]);
   const [address, setAddress] = useState("Q. 1, P. Bến Nghé, Hồ Chí Minh");
+  const [users, setUsers] = useState([] as any);
+
+  useEffect(() => {
+    const userFromLocal = localStorage.hasOwnProperty("user")
+      ? JSON.parse(localStorage.getItem("user"))
+      : "";
+    setUsers(userFromLocal);
+  }, []);
 
   useEffect(() => {
     try {
@@ -35,7 +44,7 @@ const Nav = () => {
 
   useEffect(() => {
     try {
-      axiosAll.get("/api/provinces").then((response) => {
+      axiosAll.get("/homepage/provinces").then((response) => {
         setProvinces(response.data);
       });
     } catch (error) {
@@ -45,7 +54,7 @@ const Nav = () => {
 
   useEffect(() => {
     try {
-      axiosAll.get(`/api/provinces/${city}`).then((response) => {
+      axiosAll.get(`/homepage/provinces/${city}`).then((response) => {
         setStates(response.data ? JSON.parse(response.data.districts) : null);
       });
     } catch (error) {
@@ -132,64 +141,82 @@ const Nav = () => {
             </button>
           </form>
           <div className="hidden md:justify-start md:flex">
-            <a href="/dienthoaimaytinhbang">iphone ,</a>
-            <a href="/dienthoaimaytinhbang">android ,xiaomi ,</a>
-            <a href="/dienthoaimaytinhbang">Oppo ,ios ,apple ,</a>
-            <a href="/dienthoaimaytinhbang">máy tính bảng ,</a>
-            <a href="/dienthoaimaytinhbang">realme </a>
+            <Link href="/dienthoaimaytinhbang">iphone ,</Link>
+            <Link href="/dienthoaimaytinhbang">android ,xiaomi ,</Link>
+            <Link href="/dienthoaimaytinhbang">Oppo ,ios ,apple ,</Link>
+            <Link href="/dienthoaimaytinhbang">máy tính bảng ,</Link>
+            <Link href="/dienthoaimaytinhbang">realme </Link>
           </div>
         </div>
 
         <div>
-          <div className="flex md:order-2 justify-end">
+          <div className="flex md:order-2 justify-end items-center">
             <div className="flex items-center">
               <Button className="navbutton">
                 <HiGift className="mr-2 text-xl" />
-                <span className="text-lg">Astra</span>
+                <p className="text-md">Astra</p>
               </Button>
               <Button className="navbutton relative" href="/cart">
                 <HiOutlineShoppingCart className="mr-2 text-xl" />
                 {isEmpty ? null : (
-                  <span className="bg-red-500 rounded-full px-2 py-1 text-white absolute top-0 right-1 text-xs">
+                  <p className="bg-red-500 rounded-full px-2 py-1 text-white absolute top-0 right-1 text-xs">
                     {totalItems}
-                  </span>
+                  </p>
                 )}
               </Button>
             </div>
+            {users ? (
+              <Dropdown
+                arrowIcon={false}
+                inline={true}
+                label={
+                  <Avatar alt={users.email} img={users.image} rounded={true} />
+                }
+              >
+                <Dropdown.Header>
+                  <p className="block text-sm">{users.name || users.email}</p>
+                  <p className="block truncate text-sm font-medium">
+                    {users.email}
+                  </p>
+                </Dropdown.Header>
+                <Dropdown.Item className="capitalize">
+                  {/* {
+                    (users.role = "user" ? 
+                      <Link href={"/profile"}>Profile</Link>
+                   : 
+                      <Link href={"/adminpage"}>Admin dashboard</Link>
+                    )
+                  } */}
+                  <Link href={`/${users.role}page`}>
+                    {users.role + " page"}
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item>
+                  <Link href={"/signout"}>Sign out</Link>
+                </Dropdown.Item>
+              </Dropdown>
+            ) : (
+              <Button
+                href={"/login"}
+                className="navbutton"
+              >
+                <HiUser className="text-xl mr-2"/>
+                 <p className="font-medium text-md">Đăng nhập</p>
+              </Button>
+            )}
 
-            <Dropdown
-              arrowIcon={false}
-              inline={true}
-              label={
-                <Avatar
-                  alt="User settings"
-                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                  rounded={true}
-                />
-              }
-            >
-              <Dropdown.Header>
-                <span className="block text-sm">Bonnie Green</span>
-                <span className="block truncate text-sm font-medium">
-                  name@flowbite.com
-                </span>
-              </Dropdown.Header>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
-              <Dropdown.Item>Earnings</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item>Sign out</Dropdown.Item>
-            </Dropdown>
             <Navbar.Toggle />
           </div>
           <div className="flex items-center">
             <HiMap className="navbutton" />
-            <a
+            <Link
               className="ml-2 navfont cursor-pointer text-xs"
               onClick={handleModals}
+              href={""}
             >
               Giao đến: <b className="text-black text-xs">{address}</b>
-            </a>
+            </Link>
           </div>
 
           <Modal
@@ -209,20 +236,13 @@ const Nav = () => {
                 <Button href="/login">
                   Đăng nhập để chọn địa chỉ giao hàng
                 </Button>
-                {/* <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  The European Union’s General Data Protection Regulation
-                  (G.D.P.R.) goes into effect on May 25 and is meant to ensure a
-                  common set of data rights in the European Union. It requires
-                  organizations to notify users as soon as possible of high-risk
-                  data breaches that could personally affect them.
-                </p> */}
               </div>
             </Modal.Body>
             <Modal.Footer>
               <div className="flex items-start mb-4 flex-col w-11/12 mx-auto">
                 <div className="flex items-center mb-4">
                   <input
-                    // checked
+                    defaultChecked
                     id="default-radio-1"
                     type="radio"
                     value="Q. 1, P. Bến Nghé, Hồ Chí Minh"
@@ -253,45 +273,47 @@ const Nav = () => {
                     Chọn khu vực giao hàng khác
                   </label>
                 </div>
-                <div
-                  className={
-                    "flex items-start flex-col my-5 w-full " +
-                    (isOpen ? "visible" : "invisible")
-                  }
-                >
-                  <div className="flex gap-3 items-center mb-4 justify-between w-full">
-                    <label>Tỉnh/Thành phố:</label>
-                    <select
-                      value={city}
-                      onChange={(e: any) => {
-                        setCity(e.target.value);
-                        setAddress(e.target.value);
-                      }}
-                      className="border rounded-lg w-2/3"
-                    >
-                      {provinces.map((province: any) => (
-                        <option value={province.name} key={province.id}>
-                          {province.name}
-                        </option>
-                      ))}
-                    </select>
+                {isOpen ? (
+                  <div className="flex items-start flex-col my-5 w-full ">
+                    <div className="flex gap-3 items-center mb-4 justify-between w-full">
+                      <label>Tỉnh/Thành phố:</label>
+                      <select
+                        value={city}
+                        onChange={(e: any) => {
+                          setCity(e.target.value);
+                          setAddress(e.target.value);
+                        }}
+                        className="border rounded-lg w-2/3"
+                      >
+                        {provinces.map((province: any) => (
+                          <option value={province.name} key={province.id}>
+                            {province.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="flex gap-3 items-center justify-between w-full">
+                      <label>Quận/Huyện:</label>
+                      <select
+                        className="border rounded-lg w-2/3"
+                        onChange={(e: any) =>
+                          setAddress([
+                            ...(city as any),
+                            ",",
+                            " ",
+                            e.target.value,
+                          ] as any)
+                        }
+                      >
+                        {states?.map((state: any) => (
+                          <option value={state.name} key={state.id}>
+                            {state.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                  <div className="flex gap-3 items-center justify-between w-full">
-                    <label>Quận/Huyện:</label>
-                    <select
-                      className="border rounded-lg w-2/3"
-                      onChange={(e: any) =>
-                        setAddress([...city, ",", " ", e.target.value])
-                      }
-                    >
-                      {states?.map((state: any) => (
-                        <option value={state.name} key={state.id}>
-                          {state.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
+                ) : null}
                 <Button
                   className="my-5 w-full"
                   onClick={() => setModals(false)}

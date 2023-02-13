@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
+import router from 'next/router';
 import React, { useState } from 'react'
 
 const Register = () => {
@@ -16,9 +17,11 @@ const Register = () => {
                 password: password
             },
             withCredentials: true,
-            url: 'http://localhost:3006/authentication/register'
+            url: 'http://localhost:3006/auth/signup'
         }).then(res => { console.log(res) }).catch(err => { console.log(err) })
+        router.push('http://localhost:3000')
     }
+    
 
     const handleChangeEmail = (e: any) => {
         setEmail(e.target.value)

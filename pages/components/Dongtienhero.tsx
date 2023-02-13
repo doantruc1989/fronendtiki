@@ -1,7 +1,7 @@
 import { Button, Card, Carousel, Modal, Rating } from "flowbite-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import { HiChevronRight } from "react-icons/hi";
 import { useCart } from "react-use-cart";
 import axiosAll from "./other/axiosAll";
@@ -11,8 +11,8 @@ function Dongtienhero() {
   const [products, setProducts] = useState([]);
   const [products2, setProducts2] = useState([]);
   const [modals, setModals] = useState(false);
-  const [productDetail, setProductDetail] = useState();
-  const clickref = useRef();
+  const [productDetail, setProductDetail] = useState([] as any);
+  const clickref:any = useRef();
 
   useEffect(() => {
     let handler = (e: any) => {
@@ -47,7 +47,7 @@ function Dongtienhero() {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       
       <Card className="bg-gray-200 w-full mb-6">
         <div className="flex justify-between">
@@ -71,7 +71,7 @@ function Dongtienhero() {
         <div className="h-56 gap-4 sm:h-64 xl:h-80 2xl:h-96">
           <Carousel slide={true} indicators={false}>
             <div className="grid h-auto grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 2xl:h-96">
-              {products?.map((product) => {
+              {products?.map((product: any) => {
                 return (
                   <div className="rounded-lg bg-white mb-4" key={product?.id}>
                     <img
@@ -85,6 +85,7 @@ function Dongtienhero() {
                       }}
                       src={product?.image}
                       className="rounded-t-lg cursor-pointer w-fit h-fit"
+                      alt="..."
                     />
                     <a
                       onClick={() => {
@@ -101,9 +102,9 @@ function Dongtienhero() {
                       </h5>
                     </a>
                     <div className="flex items-center flex-col justify-between">
-                      <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
+                      <p className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                         {Intl.NumberFormat().format(product?.price)} đ
-                      </span>
+                      </p>
                       <Button
                       className="mb-5 mt-2"
                       onClick={() => {
@@ -124,7 +125,7 @@ function Dongtienhero() {
             </div>
 
             <div className="grid h-auto grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 2xl:h-96">
-              {products2?.map((product) => {
+              {products2?.map((product:any) => {
                 return (
                   <div
                     className="rounded-lg bg-white mb-4 relative"
@@ -141,6 +142,7 @@ function Dongtienhero() {
                       }}
                       src={product?.image}
                       className="rounded-t-lg cursor-pointer w-fit h-fit relative"
+                      alt="..."
                     />
                     <a
                       onClick={() => {
@@ -158,9 +160,9 @@ function Dongtienhero() {
                     </a>
 
                     <div className="flex items-center flex-col justify-between">
-                      <span className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
+                      <p className="text-sm md:my-3 font-bold text-gray-900 dark:text-white">
                         {Intl.NumberFormat().format(product?.price)} đ
-                      </span>
+                      </p>
 
                       <Button
                       className="mb-5 mt-2"
@@ -194,6 +196,7 @@ function Dongtienhero() {
                 <img
                   src={productDetail?.image}
                   className="w-80 h-fit rounded-lg"
+                  alt="..."
                 />
                 <div>
                   <div className="text-xs mb-3 flex">
@@ -209,10 +212,10 @@ function Dongtienhero() {
                     <div>
                       <Rating>
                         <Rating.Star />
-                        <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+                        <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white mr-4">
                           4.95
                         </p>
-                        <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+                        
                         <a
                           href="#"
                           className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
@@ -243,7 +246,7 @@ function Dongtienhero() {
           </Modal>
         </div>
       </Card>
-    </>
+      </React.Fragment>
   );
 }
 

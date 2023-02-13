@@ -8,7 +8,8 @@ import {
 } from "react-icons/hi";
 import Link from "next/link";
 
-const index = () => {
+
+const Index = () => {
   const { totalUniqueItems, items, updateItemQuantity, removeItem, cartTotal } =
     useCart();
   return (
@@ -29,15 +30,15 @@ const index = () => {
                   <Table.HeadCell>Đơn giá</Table.HeadCell>
                   <Table.HeadCell>Số lượng</Table.HeadCell>
                   <Table.HeadCell>
-                    <span className="sr-only">Edit</span>
+                    <p className="sr-only">Edit</p>
                   </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
-                  {items.map((item) => {
+                  {items.map((item : any) => {
                     return (
-                      <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                      <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={item.id}>
                         <Table.Cell className="px-0 py-0">
-                          <img src={item.image} className="w-15 h-15" />
+                          <img src={item.image} className="w-15 h-15" alt=".."/>
                         </Table.Cell>
                         <Table.Cell className="flex-col self-center content-center hidden w-96 lg:flex text-xs font-medium text-gray-900 dark:text-white">
                           {item.productName}
@@ -117,7 +118,7 @@ const index = () => {
   );
 };
 
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
   return (
     <CartProvider>
       <Layout>
@@ -126,4 +127,4 @@ index.getLayout = function getLayout(page: ReactElement) {
     </CartProvider>
   );
 };
-export default index;
+export default Index;

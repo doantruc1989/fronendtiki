@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axiosAll from "../../components/other/axiosAll";
 
-const index = () => {
+const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [city, setCity] = useState();
   const [provinces, setProvinces] = useState([]);
@@ -11,7 +11,7 @@ const index = () => {
 
   const handleClick = () => {
     try {
-      axiosAll.get("/api/provinces").then((response) => {
+      axiosAll.get("/homepage/provinces").then((response) => {
         setProvinces(response.data);
       });
     } catch (error) {
@@ -21,7 +21,7 @@ const index = () => {
 
   useEffect(() => {
     try {
-      axiosAll.get(`/api/provinces/${city}`).then((response) => {
+      axiosAll.get(`/homepage/provinces/${city}`).then((response) => {
         setStates(response.data ? JSON.parse(response.data.districts) : null);
       });
     } catch (error) {
@@ -30,25 +30,25 @@ const index = () => {
   }, [city]);
 
   return (
-    <>
+    <React.Fragment>
       <div className="sticky top-0 z-50 w-full mx-auto">
         <nav className="navbar flex items-center justify-between py-5 h-fit px-4">
-          <a href="/">
+          <Link href="/">
             <img
               src="/image/logotiki.png"
               className="h-10 md:h-14"
               alt="tiki Logo"
             />
-          </a>
+          </Link>
 
           <ol className="flex items-center w-1/2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
             <li className="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-              <span className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+              <p className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
                 Đăng <span className="hidden sm:inline-flex sm:ml-2">nhập</span>
-              </span>
+              </p>
             </li>
             <li className="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-              <span className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+              <p className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
                 <svg
                   aria-hidden="true"
                   className="w-4 h-4 mr-2 sm:w-5 sm:h-5"
@@ -57,20 +57,20 @@ const index = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
                 Giao <span className="hidden sm:inline-flex sm:ml-2">hàng</span>
-              </span>
+              </p>
             </li>
             <li className="flex items-center">
-              <span className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+              <p className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
                 <span className="mr-2">3</span>
                 Thanh{" "}
                 <span className="hidden sm:inline-flex sm:ml-2">toán</span>
-              </span>
+              </p>
             </li>
           </ol>
 
@@ -190,8 +190,8 @@ const index = () => {
           </div>
         )}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
-export default index;
+export default Index;
