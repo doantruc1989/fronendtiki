@@ -17,7 +17,10 @@ const index = () => {
   
   return (
     <>
-    {logged ? (router.push('/diachigiaohang/giaohang')) : (<Login />)}
+    {/* {logged ? (router.push('/diachigiaohang/giaohang')) : 
+    ( */}
+    <Login />
+    {/* // )} */}
   </>
   )
 };

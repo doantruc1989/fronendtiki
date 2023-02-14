@@ -30,7 +30,7 @@ const user: any = JSON.parse(localStorage.getItem('user'))
 // }
 
 const config = {
-  baseURL: "http://localhost:3006/",
+  baseURL: "https://quocson.fatcatweb.top/",
   headers: { Authorization: 'Bearer ' + user.tokens.accessToken},
 };
 

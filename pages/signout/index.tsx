@@ -1,7 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import axiosHeader, { refresh } from "../components/other/axiosHeader";
+import axiosHeader from "../components/other/axiosHeader";
 
 function Index() {
   useEffect(() => {
