@@ -14,28 +14,28 @@ const Index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "giày nữ",
+      category: "giaynu",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
       toPrice: 100000,
     };
     const price2 = {
-      category: "giày nữ",
+      category: "giaynu",
       sortBy: "price",
       search: "gia2",
       fromPrice: 100000,
       toPrice: 260000,
     };
     const price3 = {
-      category: "giày nữ",
+      category: "giaynu",
       sortBy: "price",
       search: "gia3",
       fromPrice: 260000,
       toPrice: 460000,
     };
     const price4 = {
-      category: "giày nữ",
+      category: "giaynu",
       sortBy: "price",
       search: "gia4",
       fromPrice: 460000,
@@ -43,56 +43,56 @@ const Index = () => {
     };
 
     const danhmuc1 = {
-      category: "giày nữ",
-      sortBy: "gót",
+      category: "giaynu",
+      sortBy: "got",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "giày nữ",
-      sortBy: "thể thao",
+      category: "giaynu",
+      sortBy: "thao",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "giày nữ",
+      category: "giaynu",
       sortBy: "sandal",
       search: "danhmuc3",
     };
 
     const danhmuc4 = {
-      category: "giày nữ",
-      sortBy: "búp bê",
+      category: "giaynu",
+      sortBy: "bup",
       search: "danhmuc4",
     };
 
     const danhmuc5 = {
-      category: "giày nữ",
-      sortBy: "xuồng",
+      category: "giaynu",
+      sortBy: "xuong",
       search: "danhmuc5",
     };
 
     const danhmuc6 = {
-      category: "giày nữ",
+      category: "giaynu",
       sortBy: "boot",
       search: "danhmuc6",
     };
 
     const danhmuc7 = {
-      category: "giày nữ",
-      sortBy: "dép",
+      category: "giaynu",
+      sortBy: "dep",
       search: "danhmuc7",
     };
 
     const danhmuc8 = {
-      category: "giày nữ",
-      sortBy: "lười",
+      category: "giaynu",
+      sortBy: "luoi",
       search: "danhmuc8",
     };
 
     const danhmuc9 = {
-      category: "giày nữ",
-      sortBy: "phụ",
+      category: "giaynu",
+      sortBy: "phu",
       search: "danhmuc9",
     };
 

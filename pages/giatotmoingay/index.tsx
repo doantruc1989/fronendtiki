@@ -6,37 +6,37 @@ import ListProductgiatot from "../components/ListProductgiatot";
 
 function Index() {
   const phobien = {
-    category: "điện thoại",
+    category: "dienthoai",
     sortBy: "price",
     search: "phobien",
     path: "/dienthoaimaytinhbang"
   };
   const asc = {
-    category: "điện gia dụng",
+    category: "diengiadung",
     sortBy: "price",
     search: "asc",
     path: "/diengiadung"
   };
   const desc = {
-    category: "sách",
+    category: "sach",
     sortBy: "price",
     search: "desc",
     path: "/nhasachtiki"
   };
   const phobien2 = {
-    category: "đồ nam",
+    category: "donam",
     sortBy: "price",
     search: "phobien",
     path: "/thoitrangnam"
   };
   const asc2 = {
-    category: "đồ nữ",
+    category: "donu",
     sortBy: "price",
     search: "asc",
     path: "/thoitrangnu"
   };
   const desc2 = {
-    category: "giày nữ",
+    category: "giaynu",
     sortBy: "price",
     search: "desc",
     path: "/giaydepnu"

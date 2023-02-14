@@ -4,17 +4,17 @@ import ListProductdetail from "../components/ListProductdetail";
 
 const Tab = () => {
   const phobien = {
-    category: "đồ chơi",
+    category: "dochoi",
     sortBy: "price",
     search: "phobien",
   };
   const asc = {
-    category: "đồ chơi",
+    category: "dochoi",
     sortBy: "price",
     search: "asc",
   };
   const desc = {
-    category: "đồ chơi",
+    category: "dochoi",
     sortBy: "price",
     search: "desc",
   };

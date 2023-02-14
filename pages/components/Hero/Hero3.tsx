@@ -19,7 +19,6 @@ const Hero3 = () => {
   const [products, setProducts] = useState([]);
   const [products2, setProducts2] = useState([]);
   const [products3, setProducts3] = useState([]);
-  const [page, setPage] = useState(2);
   const [modals, setModals] = useState(false);
   const [productDetail, setProductDetail] = useState([] as any);
   const clickref: any = useRef();

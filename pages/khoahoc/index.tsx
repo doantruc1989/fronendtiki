@@ -14,28 +14,28 @@ const Index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
       toPrice: 500000,
     };
     const price2 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "price",
       search: "gia2",
       fromPrice: 500000,
       toPrice: 1200000,
     };
     const price3 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "price",
       search: "gia3",
       fromPrice: 1200000,
       toPrice: 2000000,
     };
     const price4 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "price",
       search: "gia4",
       fromPrice: 2000000,
@@ -43,37 +43,37 @@ const Index = () => {
     };
 
     const danhmuc1 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "anh",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "online",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "khoá học",
-      sortBy: "khoá",
+      category: "khoahoc",
+      sortBy: "khoa",
       search: "danhmuc3",
     };
 
     const danhmuc4 = {
-      category: "khoá học",
-      sortBy: "đức",
+      category: "khoahoc",
+      sortBy: "duc",
       search: "danhmuc4",
     };
 
     const danhmuc5 = {
-      category: "khoá học",
-      sortBy: "lập trình",
+      category: "khoahoc",
+      sortBy: "trinh",
       search: "danhmuc5",
     };
 
     const danhmuc6 = {
-      category: "khoá học",
+      category: "khoahoc",
       sortBy: "toeic",
       search: "danhmuc6",
     };

@@ -14,28 +14,28 @@ const Index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "nhà hàng",
+      category: "nhahang",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
       toPrice: 150000,
     };
     const price2 = {
-      category: "nhà hàng",
+      category: "nhahang",
       sortBy: "price",
       search: "gia2",
       fromPrice: 150000,
       toPrice: 260000,
     };
     const price3 = {
-      category: "nhà hàng",
+      category: "nhahang",
       sortBy: "price",
       search: "gia3",
       fromPrice: 260000,
       toPrice: 460000,
     };
     const price4 = {
-      category: "nhà hàng",
+      category: "nhahang",
       sortBy: "price",
       search: "gia4",
       fromPrice: 460000,
@@ -43,32 +43,32 @@ const Index = () => {
     };
 
     const danhmuc1 = {
-      category: "nhà hàng",
+      category: "nhahang",
       sortBy: "chay",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "nhà hàng",
-      sortBy: "thực",
+      category: "nhahang",
+      sortBy: "thuc",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "nhà hàng",
-      sortBy: "quà",
+      category: "nhahang",
+      sortBy: "qua",
       search: "danhmuc3",
     };
 
     const danhmuc4 = {
-      category: "nhà hàng",
+      category: "nhahang",
       sortBy: "buffet",
       search: "danhmuc4",
     };
 
     const danhmuc5 = {
-      category: "nhà hàng",
-      sortBy: "tối",
+      category: "nhahang",
+      sortBy: "toi",
       search: "danhmuc5",
     };
 

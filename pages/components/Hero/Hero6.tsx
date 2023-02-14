@@ -9,7 +9,7 @@ const Hero6 = () => {
   const [products, setProducts] = useState([] as any);
   const [page, setPage] = useState(2);
   const [value, setValue] = useState("danhchoban");
-  const [category, setCategory] = useState("đồ chơi");
+  const [category, setCategory] = useState("dochoi");
   const [modals, setModals] = useState(false);
   const [productDetail, setProductDetail] = useState([] as any);
   const clickref: any = useRef();
@@ -71,7 +71,7 @@ const Hero6 = () => {
             onClick={() => {
               setPage(1);
              
-              setCategory("đồ chơi");
+              setCategory("dochoi");
               setValue("danhchoban");
               danhchoban();
             }}
@@ -93,7 +93,7 @@ const Hero6 = () => {
             onClick={() => {
               setPage(1);
           
-              setCategory("điện thoại");
+              setCategory("dienthoai");
               setValue("dichvuso");
               danhchoban();
             }}
@@ -113,7 +113,7 @@ const Hero6 = () => {
             className="flex flex-col items-center"
             onClick={() => {
               setPage(1);
-              setCategory("đồ nữ");
+              setCategory("donu");
               setValue("dealsieuhot");
               danhchoban();
             }}
@@ -133,7 +133,7 @@ const Hero6 = () => {
             className="flex flex-col items-center"
             onClick={() => {
               setPage(1);
-              setCategory("giày nữ");
+              setCategory("giaynu");
               setValue("revodoi");
               danhchoban();
             }}
@@ -153,7 +153,7 @@ const Hero6 = () => {
             className="flex flex-col items-center"
             onClick={() => {
               setPage(1);
-              setCategory("đồ nam");
+              setCategory("donam");
               setValue("thoitrang");
               danhchoban();
             }}
@@ -172,7 +172,7 @@ const Hero6 = () => {
           <button className="flex flex-col items-center"
           onClick={() => {
             setPage(1);
-            setCategory("điện gia dụng");
+            setCategory("diengiadung");
             setValue("trending");
             danhchoban();
           }}>

@@ -13,28 +13,28 @@ const Index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "đồ chơi",
+      category: "dochoi",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
       toPrice: 40000,
     };
     const price2 = {
-      category: "đồ chơi",
+      category: "dochoi",
       sortBy: "price",
       search: "gia2",
       fromPrice: 40000,
       toPrice: 140000,
     };
     const price3 = {
-      category: "đồ chơi",
+      category: "dochoi",
       sortBy: "price",
       search: "gia3",
       fromPrice: 140000,
       toPrice: 300000,
     };
     const price4 = {
-      category: "đồ chơi",
+      category: "dochoi",
       sortBy: "price",
       search: "gia4",
       fromPrice: 300000,
@@ -42,56 +42,56 @@ const Index = () => {
     };
 
     const danhmuc1 = {
-      category: "đồ chơi",
-      sortBy: "tã",
+      category: "dochoi",
+      sortBy: "ta",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "đồ chơi",
-      sortBy: "bé",
+      category: "dochoi",
+      sortBy: "be",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "đồ chơi",
-      sortBy: "ăn",
+      category: "dochoi",
+      sortBy: "an",
       search: "danhmuc3",
     };
 
     const danhmuc4 = {
-      category: "đồ chơi",
-      sortBy: "ăn",
+      category: "dochoi",
+      sortBy: "an",
       search: "danhmuc4",
     };
 
     const danhmuc5 = {
-      category: "đồ chơi",
-      sortBy: "chơi",
+      category: "dochoi",
+      sortBy: "choi",
       search: "danhmuc5",
     };
 
     const danhmuc6 = {
-      category: "đồ chơi",
-      sortBy: "quần",
+      category: "dochoi",
+      sortBy: "quan",
       search: "danhmuc6",
     };
 
     const danhmuc7 = {
-      category: "đồ chơi",
-      sortBy: "giặt",
+      category: "dochoi",
+      sortBy: "giat",
       search: "danhmuc7",
     };
 
     const danhmuc8 = {
-      category: "đồ chơi",
-      sortBy: "rửa",
+      category: "dochoi",
+      sortBy: "rua",
       search: "danhmuc8",
     };
 
     const danhmuc9 = {
-      category: "đồ chơi",
-      sortBy: "giặt",
+      category: "dochoi",
+      sortBy: "giat",
       search: "danhmuc9",
     };
 

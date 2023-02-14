@@ -14,28 +14,28 @@ const Index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "đồ nữ",
+      category: "donu",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
       toPrice: 80000,
     };
     const price2 = {
-      category: "đồ nữ",
+      category: "donu",
       sortBy: "price",
       search: "gia2",
       fromPrice: 80000,
       toPrice: 200000,
     };
     const price3 = {
-      category: "đồ nữ",
+      category: "donu",
       sortBy: "price",
       search: "gia3",
       fromPrice: 200000,
       toPrice: 420000,
     };
     const price4 = {
-      category: "đồ nữ",
+      category: "donu",
       sortBy: "price",
       search: "gia4",
       fromPrice: 420000,
@@ -43,56 +43,56 @@ const Index = () => {
     };
 
     const danhmuc1 = {
-      category: "đồ nữ",
+      category: "donu",
       sortBy: "da",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "đồ nữ",
-      sortBy: "đầm",
+      category: "donu",
+      sortBy: "dam",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "đồ nữ",
-      sortBy: "váy",
+      category: "donu",
+      sortBy: "vay",
       search: "danhmuc3",
     };
 
     const danhmuc4 = {
-      category: "đồ nữ",
-      sortBy: "quần",
+      category: "donu",
+      sortBy: "quan",
       search: "danhmuc4",
     };
 
     const danhmuc5 = {
-      category: "đồ nữ",
-      sortBy: "áo",
+      category: "donu",
+      sortBy: "ao",
       search: "danhmuc5",
     };
 
     const danhmuc6 = {
-      category: "đồ nữ",
-      sortBy: "đôi",
+      category: "donu",
+      sortBy: "doi",
       search: "danhmuc6",
     };
 
     const danhmuc7 = {
-      category: "đồ nữ",
-      sortBy: "bầu",
+      category: "donu",
+      sortBy: "bau",
       search: "danhmuc7",
     };
 
     const danhmuc8 = {
-      category: "đồ nữ",
-      sortBy: "lót",
+      category: "donu",
+      sortBy: "lot",
       search: "danhmuc8",
     };
 
     const danhmuc9 = {
-      category: "đồ nữ",
-      sortBy: "ngủ",
+      category: "donu",
+      sortBy: "ngu",
       search: "danhmuc9",
     };
 

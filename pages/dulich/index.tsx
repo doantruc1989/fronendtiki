@@ -13,28 +13,28 @@ const Index = () => {
     const [changeTab, setChangeTab] = useState(false);
 
     const price1 = {
-      category: "du lịch",
+      category: "dulich",
       sortBy: "price",
       search: "gia1",
       fromPrice: 0,
       toPrice: 750000,
     };
     const price2 = {
-      category: "du lịch",
+      category: "dulich",
       sortBy: "price",
       search: "gia2",
       fromPrice: 750000,
       toPrice: 1900000,
     };
     const price3 = {
-      category: "du lịch",
+      category: "dulich",
       sortBy: "price",
       search: "gia3",
       fromPrice: 1900000,
       toPrice: 3000000,
     };
     const price4 = {
-      category: "du lịch",
+      category: "dulich",
       sortBy: "price",
       search: "gia4",
       fromPrice: 3000000,
@@ -42,20 +42,20 @@ const Index = () => {
     };
 
     const danhmuc1 = {
-      category: "du lịch",
+      category: "dulich",
       sortBy: "tour",
       search: "danhmuc1",
     };
 
     const danhmuc2 = {
-      category: "du lịch",
+      category: "dulich",
       sortBy: "voucher",
       search: "danhmuc2",
     };
 
     const danhmuc3 = {
-      category: "du lịch",
-      sortBy: "sạn",
+      category: "dulich",
+      sortBy: "san",
       search: "danhmuc3",
     };
 
